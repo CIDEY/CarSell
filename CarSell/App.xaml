@@ -1,0 +1,13 @@
+﻿<Application x:Class="CarSell.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CarSell"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <FontFamily x:Key="OpenSansSemiBold">pack://application:,,,/Fonts/#OpenSansSemiBold</FontFamily>
+        <FontFamily x:Key="OpenSans-Bold">pack://application:,,,/Fonts/#OpenSans-Bold</FontFamily>
+        <FontFamily x:Key="PublicSans-Bold">pack://application:,,,/Fonts/#PublicSans-Bold</FontFamily>
+
+    </Application.Resources>
+</Application>

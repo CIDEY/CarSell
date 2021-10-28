@@ -1,0 +1,402 @@
+﻿<Page x:Class="CarSell.Pages.AccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarSell.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="AccountPage">
+
+    <Border>
+
+        <Grid Background="#027BF4">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="61*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="7*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="5"
+                  Grid.RowSpan="2">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+
+                        <RowDefinition/>
+                        <RowDefinition/>
+
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="115*"/>
+                        <ColumnDefinition Width="214*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1"
+                          Grid.RowSpan="2"
+                          Margin="0,10,0,0">
+
+                        <Label Grid.Row="0" 
+                               Content="История покупок:" 
+                               FontFamily="/CarSell;component/Resource/Fonts/#Open Sans" 
+                               FontWeight="SemiBold"
+                               Foreground="White" 
+                               FontSize="66"/>
+
+                        <DataGrid Margin="0,105,0,0" 
+                                  Grid.Column="1"
+                                  x:Name="table"
+                                  AutoGenerateColumns="False"
+                                  ScrollViewer.CanContentScroll="True" 
+                                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                  CanUserAddRows="False"
+                                  CanUserDeleteRows="False"
+                                  CanUserReorderColumns="False"
+                                  CanUserResizeRows="False"
+                                  IsReadOnly="False">
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Header="Название автомобиля"
+                                                    Binding="{Binding Path= Name}"/>
+                                <DataGridTextColumn Header="Модель"
+                                                    Binding="{Binding Path= Model}"
+                                                    Width="100"/>
+                                <DataGridTextColumn Header="Описание"
+                                                    Binding="{Binding Path= InfoForCar}"
+                                                    Width="800">
+                                    <DataGridTextColumn.ElementStyle>
+
+                                        <Style TargetType="TextBlock">
+
+                                            <Setter Property="TextWrapping"
+                                                    Value="Wrap">
+                                            </Setter>
+
+                                        </Style>
+
+                                    </DataGridTextColumn.ElementStyle>
+                                </DataGridTextColumn>
+
+                                <DataGridTextColumn Header="Цена"
+                                                    Binding="{Binding Path= Price}"
+                                                    Width="500"/>
+
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+
+                    </Grid>
+
+                    <Grid Grid.Column="0" 
+                          Margin="0,488,0,2" 
+                          Grid.RowSpan="2">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="189*"/>
+                            <RowDefinition Height="93*"/>
+                            <RowDefinition Height="208*"/>
+
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Row="0"
+                               VerticalAlignment="Bottom"
+                               HorizontalAlignment="Center"
+                               Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\Cards.png"
+                               Height="160"
+                               Width="160"
+                               Margin="-20,-1,150,30"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Stretch"
+                                    Grid.Row="1" 
+                                    Margin="110,0,205,0">
+
+                            <Label Content="₽"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Stretch"
+                                   FontSize="64"
+                                   Foreground="#fff"
+                                   FontFamily="Public Sans" 
+                                   FontWeight="Bold" 
+                                   Margin="0,4,0,0"/>
+
+                            <Label Grid.Row="1"
+                                   HorizontalAlignment="Center"
+                                   FontSize="64"
+                                   Foreground="#fff" 
+                                   FontFamily="/CarShop;component/Resource/Fonts/#Public Sans" 
+                                   FontWeight="Bold"
+                                   x:Name="balance"/>
+                        </StackPanel>
+
+                        <Button Grid.Row="2" 
+                                BorderBrush="{x:Null}"
+                                Background="#FF013C78"
+                                Foreground="#FFF"
+                                FontSize="24"
+                                FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold" 
+                                Margin="155,35,313,111"
+                                Click="ReplenishBtn">
+
+                            <Button.Resources>
+
+                                <Style TargetType="Border">
+
+                                    <Setter Property="CornerRadius"
+                                            Value="10"/>
+
+                                </Style>
+
+                            </Button.Resources>
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="180">
+
+                                <Label Content="Пополнить   "
+                                       Foreground="#fff"
+                                       FontSize="20"
+                                       HorizontalAlignment="Right"
+                                       HorizontalContentAlignment="Right" 
+                                       Width="149"/>
+
+                                <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\plus-square.png" 
+                                       Height="28"
+                                       Margin="0,0,0,0"
+                                       Width="28"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </Grid>
+
+                    <Grid Grid.Column="0"
+                          Grid.Row="0">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="275*"/>
+                            <RowDefinition Height="96*"/>
+                            <RowDefinition Height="119*"/>
+
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Row="0"
+                               VerticalAlignment="Bottom"
+                               HorizontalAlignment="Center"
+                               Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\Icon.png"
+                               Height="160"
+                               Width="160"
+                               Margin="152,0,359,30"/>
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Center"
+                                    Grid.Row="1" 
+                                    Margin="96,0,295,0" 
+                                    Width="280">
+
+                            <Label Content="Привет,"
+                                   HorizontalAlignment="Center"
+                                   FontSize="36"
+                                   Foreground="#fff"
+                                   FontFamily="/CarSell;component/Resource/Fonts/#Open Sans"/>
+
+                            <Label x:Name="login"
+                                   HorizontalAlignment="Center"
+                                   FontSize="36"
+                                   Foreground="#fff" 
+                                   FontFamily="/CarSell;component/Resource/Fonts/#Open Sans"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Stretch"
+                                    HorizontalAlignment="Center"
+                                    Grid.Row="2" 
+                                    Margin="176,0,359,0" 
+                                    Width="136">
+
+                            <Button Background="#027BF4" 
+                                    BorderBrush="{x:Null}"
+                                    Click="EditAcc">
+
+                                <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\Icon3.png" 
+                                       Width="130"/>
+
+                            </Button>
+
+                        </StackPanel>
+
+                    </Grid>
+
+
+                    <Grid Grid.Column="0"
+                          Grid.Row="1">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+            <Button Grid.Column="2"
+                    Grid.Row="0"
+                    Background="#027BF4"
+                    Foreground="#027BF4" 
+                    BorderBrush="{x:Null}"
+                    Click="GoToFavorite">
+
+                <StackPanel>
+
+                    <Image  Grid.Column="5"
+                            Grid.Row="0" 
+                            Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\heart.png" 
+                            Height="100"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Grid.Column="1"
+                    Grid.Row="0"
+                    Background="#027BF4"
+                    Foreground="#027BF4" 
+                    BorderBrush="{x:Null}"
+                    Click="GoToCreditPage">
+
+                <StackPanel>
+
+                    <Image  Grid.Column="6"
+                            Grid.Row="0" 
+                            Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\percent.png" 
+                            Height="100"/>
+
+                </StackPanel>
+
+            </Button>
+
+
+
+            <Button Grid.Column="5"
+                    Grid.Row="0"
+                    Background="#027BF4"
+                    Foreground="#027BF4" 
+                    BorderBrush="{x:Null}"
+                    Click="BackToMain">
+
+                <StackPanel>
+
+                    <Image  Grid.Column="5"
+                            Grid.Row="0" 
+                            Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-out.png" Height="100"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Grid.Column="3"
+                    Grid.Row="0"
+                    Background="#027BF4"
+                    Foreground="#027BF4" 
+                    BorderBrush="{x:Null}"
+                    Click="GoToBasket">
+
+                <StackPanel>
+
+                    <Image  Grid.Column="3"
+                            Grid.Row="0" 
+                            Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\shopping-cart.png" Height="100"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button MaxHeight="67"
+                    HorizontalAlignment="Left"
+                    Margin="20,0,0,0"
+                    MaxWidth="151.55"
+                    Grid.RowSpan="2"
+                    BorderBrush="#013C78"
+                    Background="#013C78"
+                    Foreground="#FFF"
+                    FontSize="11"
+                    FontFamily="Segoe UI Black"
+                    Click="BackToKatalog">
+
+                <Button.Resources>
+
+                    <Style TargetType="Border">
+
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+
+                    </Style>
+
+                </Button.Resources>
+
+                <StackPanel Orientation="Horizontal" 
+                            Width="149">
+
+                    <Label Content="В каталог"
+                           Foreground="#fff"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           FontFamily="/CarShop;component/Resource/Fonts/#Public Sans"
+                           HorizontalAlignment="Center"
+                           HorizontalContentAlignment="Center" 
+                           Width="148">
+
+                    </Label>
+
+                </StackPanel>
+
+            </Button>
+
+            <StackPanel Grid.Row="1"
+                        Grid.ColumnSpan="6"
+                        Background="#fff">
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="2"
+                        Grid.ColumnSpan="6">
+                <DataGrid>
+
+                </DataGrid>
+            </StackPanel>
+
+
+        </Grid>
+
+    </Border>
+</Page>

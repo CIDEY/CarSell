@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище car_shopModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accounts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="45" />
+          <Property Name="favorite_car_id" Type="int" />
+          <Property Name="buy_car_id" Type="int" />
+          <Property Name="basket_car_id" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="45" />
+          <Property Name="balance" Type="double" />
+          <Property Name="type" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="baskets">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcar" Type="int" />
+          <Property Name="idcoupon" Type="int" />
+          <Property Name="idaccount" Type="int" />
+        </EntityType>
+        <EntityType Name="cars">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="model" Type="varchar" MaxLength="45" />
+          <Property Name="hp" Type="int" />
+          <Property Name="equipment" Type="varchar" MaxLength="45" />
+          <Property Name="price" Type="int" />
+          <Property Name="info_for_car" Type="varchar" MaxLength="1000" />
+          <Property Name="color" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="coupons">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="45" />
+          <Property Name="discount" Type="int" />
+        </EntityType>
+        <EntityType Name="favorites">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcar" Type="int" />
+          <Property Name="idaccount" Type="int" />
+        </EntityType>
+        <EntityType Name="phistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idcar" Type="int" />
+          <Property Name="idaccount" Type="int" />
+        </EntityType>
+        <Association Name="fk_1">
+          <End Role="accounts" Type="Self.accounts" Multiplicity="0..1" />
+          <End Role="favorites" Type="Self.favorites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="favorites">
+              <PropertyRef Name="idaccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_2">
+          <End Role="cars" Type="Self.cars" Multiplicity="0..1" />
+          <End Role="favorites" Type="Self.favorites" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cars">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="favorites">
+              <PropertyRef Name="idcar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_3">
+          <End Role="cars" Type="Self.cars" Multiplicity="0..1" />
+          <End Role="baskets" Type="Self.baskets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cars">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="baskets">
+              <PropertyRef Name="idcar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_4">
+          <End Role="coupons" Type="Self.coupons" Multiplicity="0..1" />
+          <End Role="baskets" Type="Self.baskets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="coupons">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="baskets">
+              <PropertyRef Name="idcoupon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_5">
+          <End Role="accounts" Type="Self.accounts" Multiplicity="0..1" />
+          <End Role="baskets" Type="Self.baskets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="baskets">
+              <PropertyRef Name="idaccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_6">
+          <End Role="accounts" Type="Self.accounts" Multiplicity="0..1" />
+          <End Role="phistory" Type="Self.phistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phistory">
+              <PropertyRef Name="idaccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_7">
+          <End Role="cars" Type="Self.cars" Multiplicity="0..1" />
+          <End Role="phistory" Type="Self.phistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cars">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="phistory">
+              <PropertyRef Name="idcar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище car_shopModelContainer">
+          <EntitySet Name="accounts" EntityType="Self.accounts" Schema="" store:Type="Tables" />
+          <EntitySet Name="baskets" EntityType="Self.baskets" Schema="" store:Type="Tables" />
+          <EntitySet Name="cars" EntityType="Self.cars" Schema="" store:Type="Tables" />
+          <EntitySet Name="coupons" EntityType="Self.coupons" Schema="" store:Type="Tables" />
+          <EntitySet Name="favorites" EntityType="Self.favorites" Schema="" store:Type="Tables" />
+          <EntitySet Name="phistory" EntityType="Self.phistory" Schema="" store:Type="Tables" />
+          <AssociationSet Name="fk_1" Association="Self.fk_1">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="favorites" EntitySet="favorites" />
+          </AssociationSet>
+          <AssociationSet Name="fk_2" Association="Self.fk_2">
+            <End Role="cars" EntitySet="cars" />
+            <End Role="favorites" EntitySet="favorites" />
+          </AssociationSet>
+          <AssociationSet Name="fk_3" Association="Self.fk_3">
+            <End Role="cars" EntitySet="cars" />
+            <End Role="baskets" EntitySet="baskets" />
+          </AssociationSet>
+          <AssociationSet Name="fk_4" Association="Self.fk_4">
+            <End Role="coupons" EntitySet="coupons" />
+            <End Role="baskets" EntitySet="baskets" />
+          </AssociationSet>
+          <AssociationSet Name="fk_5" Association="Self.fk_5">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="baskets" EntitySet="baskets" />
+          </AssociationSet>
+          <AssociationSet Name="fk_6" Association="Self.fk_6">
+            <End Role="accounts" EntitySet="accounts" />
+            <End Role="phistory" EntitySet="phistory" />
+          </AssociationSet>
+          <AssociationSet Name="fk_7" Association="Self.fk_7">
+            <End Role="cars" EntitySet="cars" />
+            <End Role="phistory" EntitySet="phistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="car_shopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FavoriteCarId" Type="Int32" />
+          <Property Name="BuyCarId" Type="Int32" />
+          <Property Name="BasketCarId" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="Type" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="favorites" Relationship="Self.fk_1" FromRole="accounts" ToRole="favorites" />
+          <NavigationProperty Name="baskets" Relationship="Self.fk_5" FromRole="accounts" ToRole="baskets" />
+          <NavigationProperty Name="phistories" Relationship="Self.fk_6" FromRole="accounts" ToRole="phistory" />
+        </EntityType>
+        <EntityType Name="Basket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCar" Type="Int32" />
+          <Property Name="IdCoupon" Type="Int32" />
+          <Property Name="IdAccount" Type="Int32" />
+          <NavigationProperty Name="account" Relationship="Self.fk_5" FromRole="baskets" ToRole="accounts" />
+          <NavigationProperty Name="car" Relationship="Self.fk_3" FromRole="baskets" ToRole="cars" />
+          <NavigationProperty Name="coupon" Relationship="Self.fk_4" FromRole="baskets" ToRole="coupons" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Model" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Hp" Type="Int32" />
+          <Property Name="Equipment" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="InfoForCar" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="Color" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="baskets" Relationship="Self.fk_3" FromRole="cars" ToRole="baskets" />
+          <NavigationProperty Name="favorites" Relationship="Self.fk_2" FromRole="cars" ToRole="favorites" />
+          <NavigationProperty Name="phistories" Relationship="Self.fk_7" FromRole="cars" ToRole="phistory" />
+        </EntityType>
+        <EntityType Name="Coupon">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Discount" Type="Int32" />
+          <NavigationProperty Name="baskets" Relationship="Self.fk_4" FromRole="coupons" ToRole="baskets" />
+        </EntityType>
+        <EntityType Name="Favorite">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCar" Type="Int32" />
+          <Property Name="IdAccount" Type="Int32" />
+          <NavigationProperty Name="account" Relationship="Self.fk_1" FromRole="favorites" ToRole="accounts" />
+          <NavigationProperty Name="car" Relationship="Self.fk_2" FromRole="favorites" ToRole="cars" />
+        </EntityType>
+        <EntityType Name="Phistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCar" Type="Int32" />
+          <Property Name="IdAccount" Type="Int32" />
+          <NavigationProperty Name="account" Relationship="Self.fk_6" FromRole="phistory" ToRole="accounts" />
+          <NavigationProperty Name="car1" Relationship="Self.fk_7" FromRole="phistory" ToRole="cars" />
+        </EntityType>
+        <Association Name="fk_1">
+          <End Role="accounts" Type="car_shopModel.Account" Multiplicity="0..1" />
+          <End Role="favorites" Type="car_shopModel.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="favorites">
+              <PropertyRef Name="IdAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_5">
+          <End Role="accounts" Type="car_shopModel.Account" Multiplicity="0..1" />
+          <End Role="baskets" Type="car_shopModel.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="baskets">
+              <PropertyRef Name="IdAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_6">
+          <End Role="accounts" Type="car_shopModel.Account" Multiplicity="0..1" />
+          <End Role="phistory" Type="car_shopModel.Phistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accounts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="phistory">
+              <PropertyRef Name="IdAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_3">
+          <End Role="cars" Type="car_shopModel.Car" Multiplicity="0..1" />
+          <End Role="baskets" Type="car_shopModel.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="baskets">
+              <PropertyRef Name="IdCar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_4">
+          <End Role="coupons" Type="car_shopModel.Coupon" Multiplicity="0..1" />
+          <End Role="baskets" Type="car_shopModel.Basket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="coupons">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="baskets">
+              <PropertyRef Name="IdCoupon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_2">
+          <End Role="cars" Type="car_shopModel.Car" Multiplicity="0..1" />
+          <End Role="favorites" Type="car_shopModel.Favorite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="favorites">
+              <PropertyRef Name="IdCar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_7">
+          <End Role="cars" Type="car_shopModel.Car" Multiplicity="0..1" />
+          <End Role="phistory" Type="car_shopModel.Phistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cars">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="phistory">
+              <PropertyRef Name="IdCar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="car_shopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts1" EntityType="car_shopModel.Account" />
+          <EntitySet Name="Baskets1" EntityType="car_shopModel.Basket" />
+          <EntitySet Name="Cars1" EntityType="car_shopModel.Car" />
+          <EntitySet Name="Coupons1" EntityType="car_shopModel.Coupon" />
+          <EntitySet Name="Favorites1" EntityType="car_shopModel.Favorite" />
+          <EntitySet Name="Phistories1" EntityType="car_shopModel.Phistory" />
+          <AssociationSet Name="fk_1" Association="Self.fk_1">
+            <End Role="accounts" EntitySet="Accounts1" />
+            <End Role="favorites" EntitySet="Favorites1" />
+          </AssociationSet>
+          <AssociationSet Name="fk_5" Association="Self.fk_5">
+            <End Role="accounts" EntitySet="Accounts1" />
+            <End Role="baskets" EntitySet="Baskets1" />
+          </AssociationSet>
+          <AssociationSet Name="fk_6" Association="Self.fk_6">
+            <End Role="accounts" EntitySet="Accounts1" />
+            <End Role="phistory" EntitySet="Phistories1" />
+          </AssociationSet>
+          <AssociationSet Name="fk_3" Association="Self.fk_3">
+            <End Role="cars" EntitySet="Cars1" />
+            <End Role="baskets" EntitySet="Baskets1" />
+          </AssociationSet>
+          <AssociationSet Name="fk_4" Association="Self.fk_4">
+            <End Role="coupons" EntitySet="Coupons1" />
+            <End Role="baskets" EntitySet="Baskets1" />
+          </AssociationSet>
+          <AssociationSet Name="fk_2" Association="Self.fk_2">
+            <End Role="cars" EntitySet="Cars1" />
+            <End Role="favorites" EntitySet="Favorites1" />
+          </AssociationSet>
+          <AssociationSet Name="fk_7" Association="Self.fk_7">
+            <End Role="cars" EntitySet="Cars1" />
+            <End Role="phistory" EntitySet="Phistories1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище car_shopModelContainer" CdmEntityContainer="car_shopEntities">
+          <EntitySetMapping Name="Accounts1">
+            <EntityTypeMapping TypeName="car_shopModel.Account">
+              <MappingFragment StoreEntitySet="accounts">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Login" ColumnName="login" />
+                <ScalarProperty Name="Password" ColumnName="password" />
+                <ScalarProperty Name="FavoriteCarId" ColumnName="favorite_car_id" />
+                <ScalarProperty Name="BuyCarId" ColumnName="buy_car_id" />
+                <ScalarProperty Name="BasketCarId" ColumnName="basket_car_id" />
+                <ScalarProperty Name="Email" ColumnName="email" />
+                <ScalarProperty Name="Balance" ColumnName="balance" />
+                <ScalarProperty Name="Type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Baskets1">
+            <EntityTypeMapping TypeName="car_shopModel.Basket">
+              <MappingFragment StoreEntitySet="baskets">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="IdCar" ColumnName="idcar" />
+                <ScalarProperty Name="IdCoupon" ColumnName="idcoupon" />
+                <ScalarProperty Name="IdAccount" ColumnName="idaccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars1">
+            <EntityTypeMapping TypeName="car_shopModel.Car">
+              <MappingFragment StoreEntitySet="cars">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Model" ColumnName="model" />
+                <ScalarProperty Name="Hp" ColumnName="hp" />
+                <ScalarProperty Name="Equipment" ColumnName="equipment" />
+                <ScalarProperty Name="Price" ColumnName="price" />
+                <ScalarProperty Name="InfoForCar" ColumnName="info_for_car" />
+                <ScalarProperty Name="Color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Coupons1">
+            <EntityTypeMapping TypeName="car_shopModel.Coupon">
+              <MappingFragment StoreEntitySet="coupons">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="Code" ColumnName="code" />
+                <ScalarProperty Name="Discount" ColumnName="discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favorites1">
+            <EntityTypeMapping TypeName="car_shopModel.Favorite">
+              <MappingFragment StoreEntitySet="favorites">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="IdCar" ColumnName="idcar" />
+                <ScalarProperty Name="IdAccount" ColumnName="idaccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phistories1">
+            <EntityTypeMapping TypeName="car_shopModel.Phistory">
+              <MappingFragment StoreEntitySet="phistory">
+                <ScalarProperty Name="Id" ColumnName="id" />
+                <ScalarProperty Name="IdCar" ColumnName="idcar" />
+                <ScalarProperty Name="IdAccount" ColumnName="idaccount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

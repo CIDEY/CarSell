@@ -1,0 +1,599 @@
+﻿<Page x:Class="CarSell.Pages.ChangeInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarSell.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="ChangeInfo">
+
+    <Border>
+
+        <Grid Background="#027BF4">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="100"/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0">
+
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="40*"/>
+                    <ColumnDefinition Width="196*"/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="30*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <Button MaxHeight="67"
+                            HorizontalAlignment="Left"
+                            Margin="20,0,0,0"
+                            MaxWidth="151.55"
+                            Grid.RowSpan="2"
+                            BorderBrush="#013C78"
+                            Background="#013C78"
+                            Foreground="#FFF"
+                            FontSize="11"
+                            FontFamily="Segoe UI Black"
+                            Click="BackToKatalog">
+
+                    <Button.Resources>
+
+                        <Style TargetType="Border">
+
+                            <Setter Property="CornerRadius"
+                                    Value="10"/>
+
+                        </Style>
+
+                    </Button.Resources>
+
+                    <StackPanel Orientation="Horizontal" 
+                                Width="149">
+
+                        <Label Content="В каталог"
+                               Foreground="#fff"
+                               FontSize="24"
+                               FontFamily="/CarShop;component/Resource/Fonts/#Public Sans"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Center"
+                               HorizontalContentAlignment="Center" 
+                               Width="148">
+
+                        </Label>
+
+                    </StackPanel>
+
+                </Button>
+
+                <Button Grid.Column="3"
+                        Grid.Row="0"
+                        Background="#027BF4"
+                        Foreground="#027BF4" 
+                        BorderBrush="{x:Null}"
+                        Click="GoToFavorite">
+
+                    <StackPanel>
+
+                        <Image  Grid.Column="5"
+                                Grid.Row="0" 
+                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\heart.png" 
+                                Height="100"/>
+
+                    </StackPanel>
+
+                </Button>
+
+                <Button Grid.Column="2"
+                        Grid.Row="0"
+                        Background="#027BF4"
+                        Foreground="#027BF4" 
+                        BorderBrush="{x:Null}"
+                        Click="GoToFavorite">
+
+                    <StackPanel>
+
+                        <Image  Grid.Column="6"
+                                Grid.Row="0" 
+                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\percent.png" 
+                                Height="100"/>
+
+                    </StackPanel>
+
+                </Button>
+
+                <Button Grid.Column="4"
+                        Grid.Row="0"
+                        Background="#027BF4"
+                        Foreground="#027BF4" 
+                        BorderBrush="{x:Null}"
+                        Click="GoToBasket">
+
+                    <StackPanel>
+
+                        <Image  Grid.Column="3"
+                                Grid.Row="0" 
+                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\shopping-cart.png" 
+                                Height="100"/>
+
+                    </StackPanel>
+
+                </Button>
+
+                <Button Grid.Column="5"
+                        Grid.Row="0"
+                        Background="#027BF4"
+                        Foreground="#027BF4" 
+                        BorderBrush="{x:Null}"
+                        Click="BackToMain">
+
+                    <StackPanel>
+
+                        <Image  Grid.Column="5"
+                                Grid.Row="0" 
+                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-out.png"
+                                Height="100"/>
+
+                    </StackPanel>
+
+                </Button>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                       Content="Смена данных:"
+                       VerticalContentAlignment="Center"
+                       HorizontalContentAlignment="Center"
+                       FontSize="64" 
+                       FontFamily="/CarShop;component/Resource/Fonts/#Public Sans" 
+                       Foreground="White" 
+                       FontWeight="Bold"/>
+
+                <Grid Grid.Row="1">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="260*"/>
+                        <ColumnDefinition Width="413*"/>
+                        <ColumnDefinition Width="287*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button Height="70"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Margin="100,0,0,5"
+                            Width="223"
+                            Grid.Column="2"
+                            BorderBrush="#fff"
+                            Background="#013C78"
+                            Foreground="#FFF"
+                            FontSize="11"
+                            FontFamily="Segoe UI Black">
+
+                        <Button.Resources>
+
+                            <Style TargetType="Border">
+
+                                <Setter Property="CornerRadius"
+                                        Value="10"/>
+
+                            </Style>
+
+                        </Button.Resources>
+
+                        <StackPanel Orientation="Horizontal" 
+                                    Width="180">
+
+                            <Label Content="Сменить"
+                                   Foreground="#fff"
+                                   FontSize="24"
+                                   HorizontalAlignment="Center"
+                                   HorizontalContentAlignment="Center" 
+                                   Width="136" 
+                                   FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold">
+
+                            </Label>
+
+                            <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-in.png" 
+                                   Height="42" 
+                                   Width="42"/>
+
+                        </StackPanel>
+
+                    </Button>
+
+                    <Button Height="70"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Margin="100,0,0,5"
+                            Width="223"
+                            Grid.Column="2"
+                            BorderBrush="#fff"
+                            Background="#013C78"
+                            Foreground="#FFF"
+                            FontSize="11"
+                            FontFamily="Segoe UI Black" Click="ChangeLogin">
+
+                        <Button.Resources>
+
+                            <Style TargetType="Border">
+
+                                <Setter Property="CornerRadius"
+                                        Value="10"/>
+
+                            </Style>
+
+                        </Button.Resources>
+
+                        <StackPanel Orientation="Horizontal" 
+                                    Width="180">
+
+                            <Label Content="Сменить"
+                                   Foreground="#fff"
+                                   FontSize="24"
+                                   HorizontalAlignment="Center"
+                                   HorizontalContentAlignment="Center" 
+                                   Width="136" 
+                                   FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold"/>
+
+                            <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-in.png" 
+                                   Height="42" 
+                                   Width="42"/>
+
+                        </StackPanel>
+
+                    </Button>
+
+                    <Grid Grid.Column="1">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <TextBox Grid.Row="1"
+                                 Grid.ColumnSpan="6"
+                                 BorderBrush="Black"
+                                 BorderThickness="1.5" 
+                                 x:Name="loginBox"
+                                 FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
+                                 VerticalContentAlignment="Center"
+                                 FontSize="45">
+
+                            <TextBox.Resources>
+
+                                <Style TargetType="Border">
+
+                                    <Setter Property="CornerRadius"
+                                            Value="20"/>
+
+                                </Style>
+
+                            </TextBox.Resources>
+
+                        </TextBox>
+
+                        <Label Grid.Row="0"
+                               Content="Логин" 
+                               FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold"
+                               FontSize="48" 
+                               Foreground="White"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="2">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="260*"/>
+                        <ColumnDefinition Width="413*"/>
+                        <ColumnDefinition Width="287*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button Height="70"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Margin="100,0,0,5"
+                            Width="223"
+                            Grid.Column="2"
+                            BorderBrush="#fff"
+                            Background="#013C78"
+                            Foreground="#FFF"
+                            FontSize="11"
+                            FontFamily="Segoe UI Black" Click="ChangePassword">
+
+                        <Button.Resources>
+
+                            <Style TargetType="Border">
+
+                                <Setter Property="CornerRadius"
+                                        Value="10"/>
+
+                            </Style>
+
+                        </Button.Resources>
+
+                        <StackPanel Orientation="Horizontal" 
+                                    Width="180">
+
+                            <Label Content="Сменить"
+                                   Foreground="#fff"
+                                   FontSize="24"
+                                   HorizontalAlignment="Center"
+                                   HorizontalContentAlignment="Center" 
+                                   Width="136" 
+                                   FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold">
+
+                            </Label>
+
+                            <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-in.png" 
+                                   Height="42" 
+                                   Width="42"/>
+
+                        </StackPanel>
+
+                    </Button>
+
+                    <Grid Grid.Column="1">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+
+
+                        <TextBox Grid.Row="1"
+                                 Grid.ColumnSpan="6"
+                                 BorderBrush="Black"
+                                 BorderThickness="1.5" 
+                                 x:Name="passBox"
+                                 FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
+                                 VerticalContentAlignment="Center"
+                                 FontSize="45">
+
+                            <TextBox.Resources>
+
+                                <Style TargetType="Border">
+
+                                    <Setter Property="CornerRadius"
+                                            Value="20"/>
+
+                                </Style>
+
+                            </TextBox.Resources>
+
+                        </TextBox>
+
+                        <Label Grid.Row="0"
+                               Content="Пароль" 
+                               FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold"
+                               FontSize="48" 
+                               Foreground="White"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="3">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="260*"/>
+                        <ColumnDefinition Width="413*"/>
+                        <ColumnDefinition Width="287*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button Height="70"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Margin="100,0,0,5"
+                            Width="223"
+                            Grid.Column="2"
+                            BorderBrush="#fff"
+                            Background="#013C78"
+                            Foreground="#FFF"
+                            FontSize="11"
+                            FontFamily="Segoe UI Black">
+
+                        <Button.Resources>
+
+                            <Style TargetType="Border">
+
+                                <Setter Property="CornerRadius"
+                                        Value="10"/>
+
+                            </Style>
+
+                        </Button.Resources>
+
+                        <StackPanel Orientation="Horizontal" 
+                                    Width="180">
+
+                            <Label Content="Выслать код"
+                                   Foreground="#fff"
+                                   FontSize="20"
+                                   HorizontalAlignment="Center"
+                                   HorizontalContentAlignment="Center" 
+                                   Width="136" 
+                                   FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold">
+
+                            </Label>
+
+                            <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-in.png" 
+                                   Height="42" 
+                                   Width="42"/>
+
+                        </StackPanel>
+
+                    </Button>
+
+                    <Grid Grid.Column="1">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <TextBox Grid.Row="1"
+                                 FontFamily="/CarShop;component/Resource/Fonts/#Open Sans"
+                                 Grid.ColumnSpan="6"
+                                 BorderBrush="Black"
+                                 BorderThickness="1.5" 
+                                 FontSize="50">
+
+                            <TextBox.Resources>
+
+                                <Style TargetType="Border">
+
+                                    <Setter Property="CornerRadius"
+                                            Value="20"/>
+
+                                </Style>
+
+                            </TextBox.Resources>
+
+                        </TextBox>
+
+                        <Label Grid.Row="0"
+                               Content="Подтверждение почты" 
+                               FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold"
+                               FontSize="48" 
+                               Foreground="White"/>
+
+                    </Grid>
+
+                </Grid>
+
+                <Grid Grid.Row="4">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="260*"/>
+                        <ColumnDefinition Width="413*"/>
+                        <ColumnDefinition Width="287*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Button Height="70"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Margin="100,0,0,5"
+                            Width="223"
+                            Grid.Column="2"
+                            BorderBrush="#fff"
+                            Background="#013C78"
+                            Foreground="#FFF"
+                            FontSize="11"
+                            FontFamily="Segoe UI Black">
+
+                        <Button.Resources>
+
+                            <Style TargetType="Border">
+
+                                <Setter Property="CornerRadius"
+                                        Value="10"/>
+
+                            </Style>
+
+                        </Button.Resources>
+
+                        <StackPanel Orientation="Horizontal" 
+                                    Width="180">
+
+                            <Label Content="Подтвердить"
+                                   Foreground="#fff"
+                                   FontSize="18"
+                                   HorizontalAlignment="Center"
+                                   HorizontalContentAlignment="Center" 
+                                   Width="136" 
+                                   FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold">
+
+                            </Label>
+
+                            <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-in.png" 
+                                   Height="42" 
+                                   Width="42"/>
+
+                        </StackPanel>
+
+                    </Button>
+
+                    <Grid Grid.Column="1">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <TextBox Grid.Row="1"
+                                 FontFamily="/CarShop;component/Resource/Fonts/#Open Sans"
+                                 Grid.ColumnSpan="6"
+                                 BorderBrush="Black"
+                                 BorderThickness="1.5" 
+                                 FontSize="50">
+
+                            <TextBox.Resources>
+
+                                <Style TargetType="Border">
+
+                                    <Setter Property="CornerRadius"
+                                            Value="20"/>
+
+                                </Style>
+
+                            </TextBox.Resources>
+
+                        </TextBox>
+
+                        <Label Grid.Row="0"
+                               Content="Код" 
+                               FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold"
+                               FontSize="48" 
+                               Foreground="White"/>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+        </Grid>
+
+    </Border>
+
+</Page>
+

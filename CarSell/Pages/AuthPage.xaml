@@ -1,0 +1,419 @@
+﻿<Page x:Class="CarSell.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarSell.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="AuthPage">
+
+    <Border CornerRadius="2,2,2,2" 
+            BorderThickness="2,2,2,2">
+
+        <Grid Background="#027BF4">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="234*"/>
+                <ColumnDefinition Width="233*"/>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="145*"/>
+                <ColumnDefinition Width="182*"/>
+                <ColumnDefinition Width="234*"/>
+                <ColumnDefinition Width="137*"/>
+                <ColumnDefinition Width="69*"/>
+                <ColumnDefinition Width="72*"/>
+                <ColumnDefinition Width="233*"/>
+                <ColumnDefinition Width="143*"/>
+                <ColumnDefinition Width="92*"/>
+                <ColumnDefinition Width="Auto"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto" />
+
+            </Grid.RowDefinitions>
+
+
+            <Border Grid.Column="2" 
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="8"
+                    Background="White"
+                    Grid.RowSpan="12">
+
+                <Border.Resources>
+
+                    <Style TargetType="Border">
+
+                        <Setter Property="CornerRadius"
+                                Value="50"/>
+                    </Style>
+
+
+                </Border.Resources>
+
+            </Border>
+
+            <Label Grid.Column="2" 
+                   Grid.Row="2" 
+                   Grid.ColumnSpan="8"
+                   Content="Авторизация"
+                   HorizontalContentAlignment="Center"
+                   VerticalContentAlignment="Top"
+                   FontSize="64"
+                   Margin="0,-15,0,0"
+                   FontFamily="/CarShop;component/Resource/Fonts/#Open Sans"
+                   FontWeight="SemiBold"/>
+
+            <TextBox x:Name="textBoxLogin"
+                     Grid.Column="3" 
+                     Grid.Row="5"
+                     FontFamily="/CarShop;component/Resource/Fonts/#Open Sans"
+                     Grid.ColumnSpan="6"
+                     BorderBrush="Black"
+                     BorderThickness="1.5" 
+                     FontSize="50"
+                     Text="Введите логин" 
+                     GotFocus="TextBox_GotFocus" 
+                     LostFocus="login_LostFocus" 
+                     FontWeight="Bold"
+                     VerticalAlignment="Center">
+
+                <TextBox.Resources>
+
+                    <Style TargetType="Border">
+
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+                    </Style>
+
+                </TextBox.Resources>
+
+            </TextBox>
+
+            <PasswordBox x:Name="textBoxPassword"
+                         Grid.Column="3" 
+                         Grid.Row="8" 
+                         Grid.ColumnSpan="6"
+                         BorderBrush="Black"
+                         BorderThickness="1.5"
+                         FontSize="50"
+                         VerticalAlignment="Center">
+
+                <PasswordBox.Style>
+
+                    <Style TargetType="{x:Type PasswordBox}">
+
+                        <Style.Resources>
+
+                            <Style TargetType="Border">
+
+                                <Setter Property="CornerRadius"
+                                        Value="8"/>
+
+                            </Style>
+
+                        </Style.Resources>
+
+                        <Setter Property="Template">
+
+                            <Setter.Value>
+
+                                <ControlTemplate TargetType="{x:Type PasswordBox}">
+
+                                    <Border x:Name="border" 
+                                            CornerRadius="8" 
+                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}" 
+                                            Background="{TemplateBinding Background}" 
+                                            SnapsToDevicePixels="True">
+
+                                        <ScrollViewer x:Name="PART_ContentHost" 
+                                                      Focusable="false" 
+                                                      HorizontalScrollBarVisibility="Hidden" 
+                                                      VerticalScrollBarVisibility="Hidden"/>
+
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+
+                                        <Trigger Property="IsEnabled" 
+                                                 Value="false">
+
+                                            <Setter Property="Opacity" 
+                                                    TargetName="border" 
+                                                    Value="0.56"/>
+
+                                        </Trigger>
+
+                                        <Trigger Property="IsMouseOver" 
+                                                 Value="true">
+
+                                            <Setter Property="BorderBrush" 
+                                                    TargetName="border" 
+                                                    Value="#FF7EB4EA"/>
+
+                                        </Trigger>
+
+                                        <Trigger Property="IsKeyboardFocused" 
+                                                 Value="true">
+
+                                            <Setter Property="BorderBrush" 
+                                                    TargetName="border" 
+                                                    Value="#FF569DE5"/>
+
+                                        </Trigger>
+
+                                    </ControlTemplate.Triggers>
+
+                                </ControlTemplate>
+
+                            </Setter.Value>
+
+                        </Setter>
+
+                        <Style.Triggers>
+
+                            <MultiTrigger>
+
+                                <MultiTrigger.Conditions>
+
+                                    <Condition Property="IsInactiveSelectionHighlightEnabled"
+                                               Value="true"/>
+
+                                    <Condition Property="IsSelectionActive"
+                                               Value="false"/>
+
+                                </MultiTrigger.Conditions>
+
+                                <Setter Property="SelectionBrush" 
+                                        Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+
+                            </MultiTrigger>
+
+                        </Style.Triggers>
+
+                    </Style>
+
+                </PasswordBox.Style>
+
+            </PasswordBox>
+
+
+
+            <Button Height="Auto"
+                    Width="Auto"
+                    Grid.ColumnSpan="2"
+                    Grid.Column="7" 
+                    Grid.Row="11" 
+                    BorderBrush="#fff"
+                    Background="#013C78"
+                    Foreground="#FFF"
+                    FontSize="11"
+                    FontFamily="Segoe UI Black"
+                    Click="RegToAcc">
+
+                <Button.Resources>
+
+                    <Style TargetType="Border">
+
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+
+                    </Style>
+
+                </Button.Resources>
+
+                <StackPanel Orientation="Horizontal" 
+                            Width="180">
+
+                    <Label Content="Регистрация"
+                           Foreground="#fff"
+                           FontSize="20"
+                           HorizontalAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           Width="136">
+
+                    </Label>
+
+                    <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\plus-square.png" 
+                           Height="42" 
+                           Width="42"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Height="Auto"
+                    Width="Auto"
+                    Grid.Column="12" 
+                    Grid.Row="0" 
+                    BorderBrush="#fff"
+                    Background="#FF0000"
+                    Foreground="#FFF"
+                    FontSize="11"
+                    FontFamily="Segoe UI Black"
+                    Click="Exit"
+                    Margin="38,0,0,26">
+
+                <Button.Resources>
+
+                    <Style TargetType="Border">
+
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+
+                    </Style>
+
+                </Button.Resources>
+
+                <StackPanel Orientation="Horizontal" 
+                            Width="49" 
+                            Height="40">
+
+                    <Label Content="X"
+                           Foreground="#fff"
+                           FontSize="30"
+                           Margin="0,-6,0,2"
+                           HorizontalAlignment="Center"
+                           HorizontalContentAlignment="Center"
+                           Width="51"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Height="Auto"
+                    Width="Auto"
+                    Grid.Column="11" 
+                    Grid.Row="0" 
+                    BorderBrush="#fff"
+                    Background="#013C78"
+                    Foreground="#FFF"
+                    FontSize="11"
+                    FontFamily="Segoe UI Black"
+                    Click="RollUp"
+                    Margin="85,0,0,26"
+                    Padding="0,0,0,0">
+
+                <Button.Resources>
+
+                    <Style TargetType="Border">
+
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+                    </Style>
+
+                </Button.Resources>
+
+                <StackPanel Orientation="Horizontal" 
+                            Width="49" 
+                            Height="40">
+
+                    <Label Content="—"
+                           Foreground="#fff"
+                           FontSize="30"
+                           Margin="0,1,0,2"
+                           HorizontalAlignment="Center"
+                           HorizontalContentAlignment="Center" 
+                           Width="51"/>
+
+                </StackPanel>
+
+            </Button>
+
+            <Button Height="Auto"
+                    Width="Auto"
+                    Grid.ColumnSpan="2"
+                    Grid.Column="3" 
+                    Grid.Row="11" 
+                    BorderBrush="#fff"
+                    Background="#013C78"
+                    Foreground="#FFF"
+                    FontSize="11"
+                    FontFamily="Segoe UI Black"
+                    Click="EnterToAcc">
+
+                <Button.Resources>
+
+                    <Style TargetType="Border">
+
+                        <Setter Property="CornerRadius"
+                                Value="10"/>
+
+                    </Style>
+
+                </Button.Resources>
+
+                <StackPanel Orientation="Horizontal" 
+                            Width="180">
+
+                    <Label Content="Войти"
+                           Foreground="#fff"
+                           FontSize="30"
+                           HorizontalAlignment="Center"
+                           HorizontalContentAlignment="Center" 
+                           Width="136">
+
+                    </Label>
+
+                    <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-in.png" 
+                           Height="42" 
+                           Width="42"/>
+
+                </StackPanel>
+
+            </Button>
+
+
+
+            <Image  Grid.Column="3"
+                    Grid.Row="4"  
+                    Height="47" 
+                    Width="47" 
+                    Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\Vector.png"/>
+
+            <Image  Grid.Column="3" 
+                    Grid.Row="7"  
+                    Height="47" 
+                    Width="47" 
+                    Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\Vector1.png"/>
+
+            <Label  Content="Логин"
+                    FontSize="48"
+                    Grid.Column="4" 
+                    Grid.Row="4" 
+                    Grid.ColumnSpan="2"
+                    FontFamily="/CarShop;component/Resource/Fonts/#Open Sans"
+                    FontWeight="SemiBold"/>
+
+            <Label  Content="Пароль"
+                    FontSize="48"
+                    Grid.Column="4" 
+                    Grid.Row="7" 
+                    Grid.ColumnSpan="2"
+                    FontFamily="/CarShop;component/Resource/Fonts/#Open Sans"/>
+
+        </Grid>
+
+    </Border>
+
+</Page>

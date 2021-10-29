@@ -24,29 +24,42 @@
 
                 <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="1196*"/>
-                    <ColumnDefinition Width="145*"/>
+                    <ColumnDefinition Width="642*"/>
+                    <ColumnDefinition Width="469*"/>
+                    <ColumnDefinition Width="135*"/>
                     <ColumnDefinition Width="0*"/>
-                    <ColumnDefinition Width="144*"/>
-                    <ColumnDefinition Width="145*"/>
-                    <ColumnDefinition Width="145*"/>
-                    <ColumnDefinition Width="145*"/>
-                    <ColumnDefinition Width="145*"/>
+                    <ColumnDefinition Width="134*"/>
+                    <ColumnDefinition Width="135*"/>
+                    <ColumnDefinition Width="135*"/>
+                    <ColumnDefinition Width="135*"/>
+                    <ColumnDefinition Width="135*"/>
 
                 </Grid.ColumnDefinitions>
 
 
-                <Image Grid.Column="0"
-                       Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\carLogoSell.png"
-                       Width="60"
-                       HorizontalAlignment="Left"
-                       Margin="20,20,0,20"/>
+                <StackPanel Orientation="Horizontal">
 
-                <Button Grid.Column="7"
+                    <Image Grid.Column="0"
+                           Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\carLogoSell.png"
+                           Width="60"
+                           HorizontalAlignment="Left"
+                           Margin="20,20,0,20"/>
+
+                    <Label Content="Каталог автомобилей"
+                           Grid.Column="0"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           FontSize="45" 
+                           FontFamily="/CarSell;component/Resource/Fonts/#Open Sans" 
+                           Foreground="White"/>
+
+                </StackPanel>
+
+                <Button Grid.Column="8"
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
                         Click="BackToMain">
@@ -63,11 +76,11 @@
 
                 </Button>
 
-                <Button Grid.Column="6"
+                <Button Grid.Column="7"
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
                         Click="GoToAccInfo">
@@ -85,11 +98,11 @@
 
                 </Button>
 
-                <Button Grid.Column="5"
+                <Button Grid.Column="6"
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
                         Click="GoToBusket">
@@ -107,11 +120,11 @@
 
                 </Button>
 
-                <Button Grid.Column="4"
+                <Button Grid.Column="5"
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
                         Click="GoToFavoritePage">
@@ -134,10 +147,10 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="134"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Click="GoToCredit">
+                        Click="GoToCredit" Grid.ColumnSpan="2">
 
                     <StackPanel HorizontalAlignment="Center">
 
@@ -151,11 +164,11 @@
 
                 </Button>
 
-                <Button Grid.Column="1"
+                <Button Grid.Column="2"
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
                         Click="GoToCoupon"
@@ -354,7 +367,7 @@
 
                 </Button>
 
-                
+
 
                 <Button Width="170"
                         Grid.Column="4"
@@ -412,13 +425,17 @@
                           CanUserResizeRows="False"
                           Margin="36,0,36,30"
                           IsReadOnly="False"
-                          SelectionMode="Single">
+                          SelectionMode="Single" 
+                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold" 
+                          FontSize="25"
+                          Height="850" 
+                          VerticalAlignment="Bottom">
 
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="Название автомобиля" 
                                             Binding="{Binding Path=Name}" 
-                                            Width="100">
+                                            Width="300">
 
                             <DataGridTextColumn.ElementStyle>
 
@@ -440,7 +457,7 @@
 
                         <DataGridTextColumn Header="Модель"
                                             Binding="{Binding Path=Model}" 
-                                            Width="100">
+                                            Width="150">
 
                             <DataGridTextColumn.ElementStyle>
 
@@ -462,7 +479,7 @@
 
                         <DataGridTextColumn Header="Описание" 
                                             Binding="{Binding Path=InfoForCar}" 
-                                            Width="1000">
+                                            Width="700">
 
                             <DataGridTextColumn.ElementStyle>
 
@@ -480,7 +497,7 @@
 
                         <DataGridTextColumn Header="Цена"
                                             Binding="{Binding Path=Price}" 
-                                            Width="100">
+                                            Width="200">
 
                             <DataGridTextColumn.ElementStyle>
 
@@ -502,7 +519,7 @@
 
                         <DataGridTextColumn Header="Цвет"
                                             Binding="{Binding Path=Color}" 
-                                            Width="100">
+                                            Width="260">
 
                             <DataGridTextColumn.ElementStyle>
 
@@ -524,7 +541,7 @@
 
                         <DataGridTextColumn Header="Комплектация"
                                             Binding="{Binding Path=Equipment}" 
-                                            Width="400">
+                                            Width="200">
 
                             <DataGridTextColumn.ElementStyle>
 

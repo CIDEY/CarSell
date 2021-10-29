@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -130,6 +131,67 @@ namespace CarSell.Pages
                     double itog = Math.Round(payment, 2);
                     mounthPay.Text = Convert.ToString(itog);
                 }
+            }
+        }
+
+        private void mounthCredit_GotFocus(object sender, RoutedEventArgs e)
+        {
+            srok.Text = null;
+        }
+
+        private void mounthCredit_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (srok.Text == "")
+            {
+                srok.Text = "Введите срок займа";
+            }
+        }
+
+        private void amountOfMoney_GotFocus(object sender, RoutedEventArgs e)
+        {
+            summ.Text = null;
+        }
+
+        private void amountOfMoney_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (summ.Text == "")
+            {
+                summ.Text = "Введите сумму";
+            }
+        }
+
+        private void TextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = e.Key == Key.Space;
+        }
+
+        private void HpCarTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var srok = e.Source as TextBox;
+            Regex regex;
+
+            if (Regex.Match(srok.Text, @"[0-9]").Success)
+            {
+                regex = new Regex(@"[^0-9]");
+            }
+            else
+            {
+                regex = new Regex(@"[^0-9]");
+            }
+
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void HpCarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(srok.Text, @"^[0-9]+$"))
+            {
+                srok.Background = Brushes.White;
+            }
+            else if (Regex.IsMatch(srok.Text, @"^[0-9]+$"))
+            {
+                srok.ToolTip = "Это поле введено не корректно!";
+                srok.Background = Brushes.Red;
             }
         }
     }

@@ -347,7 +347,11 @@
                                          Margin="40,0,0,0" 
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="NameCarTextChanged"
+                                         PreviewTextInput="NameCarTextInput">
 
                                 </TextBox>
 
@@ -371,7 +375,11 @@
                                          x:Name="modelCarBox"
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="ModelCarTextChanged"
+                                         PreviewTextInput="ModelCarTextInput">
 
                                 </TextBox>
 
@@ -395,7 +403,11 @@
                                          x:Name="HpBox"
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="HpCarTextChanged"
+                                         PreviewTextInput="HpCarTextInput">
 
                                 </TextBox>
 
@@ -419,7 +431,11 @@
                                          x:Name="equipmentCarBox"
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="NameCarTextChanged"
+                                         PreviewTextInput="NameCarTextInput">
 
                                 </TextBox>
 
@@ -443,7 +459,11 @@
                                          x:Name="priceCarBox"
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="HpCarTextChanged"
+                                         PreviewTextInput="HpCarTextInput">
 
                                 </TextBox>
 
@@ -491,7 +511,11 @@
                                          x:Name="colorCarBox"
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="NameCarTextChanged"
+                                         PreviewTextInput="NameCarTextInput">
 
                                 </TextBox>
 

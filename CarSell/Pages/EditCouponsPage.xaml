@@ -364,7 +364,11 @@
                                          x:Name="discountSize"
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="HpCarTextChanged"
+                                         PreviewTextInput="HpCarTextInput">
 
                                 </TextBox>
 

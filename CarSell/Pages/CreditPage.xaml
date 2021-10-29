@@ -213,10 +213,17 @@
                                              Height="64"
                                              Margin="320,39,411,40" 
                                              Width="320"
+                                             Padding="5,0,0,0"
                                              FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                              VerticalAlignment="Center"
-                                             FontSize="25"
-                                             VerticalContentAlignment="Center">
+                                             FontSize="24"
+                                             VerticalContentAlignment="Center"
+                                             GotFocus="mounthCredit_GotFocus" 
+                                             LostFocus="mounthCredit_LostFocus"
+                                             KeyDown="TextBoxKeyDown"
+                                             PreviewKeyDown="TextBoxKeyDown"
+                                             TextChanged="HpCarTextChanged"
+                                             PreviewTextInput="HpCarTextInput">
 
                                         <TextBox.Resources>
 
@@ -235,11 +242,10 @@
                                            Grid.Row="2" 
                                            FontFamily="/CarShop;component/Resource/Fonts/#Public Sans" 
                                            FontWeight="Bold" 
-                                           FontSize="35" 
+                                           FontSize="24" 
                                            Width="212"
-                                           VerticalAlignment="Center"
-                                           Margin="-600,44,0,40" 
-                                           Height="60"/>
+                                           VerticalContentAlignment="Center"
+                                           Margin="-600,35,0,40"/>
 
                                 </StackPanel>
 
@@ -254,10 +260,17 @@
                                              Margin="320,42,411,38" 
                                              Width="320"
                                              x:Name="summ"
+                                             Padding="5,0,0,0"
                                              FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                              VerticalAlignment="Center"
                                              FontSize="25"
-                                             VerticalContentAlignment="Center">
+                                             VerticalContentAlignment="Center"
+                                             GotFocus="amountOfMoney_GotFocus" 
+                                             LostFocus="amountOfMoney_LostFocus"
+                                             KeyDown="TextBoxKeyDown"
+                                             PreviewKeyDown="TextBoxKeyDown"
+                                             TextChanged="HpCarTextChanged"
+                                             PreviewTextInput="HpCarTextInput">
 
                                         <TextBox.Resources>
 
@@ -275,11 +288,11 @@
                                     <Label Content="₽" 
                                            FontFamily="/CarShop;component/Resource/Fonts/#Public Sans" 
                                            FontWeight="Bold" 
-                                           FontSize="48" 
-                                           Width="209"
+                                           FontSize="24" 
+                                           Width="210"
                                            VerticalAlignment="Center"
-                                           Margin="-600,34,0,38" 
-                                           Height="66"/>
+                                           Margin="-600,53,0,39" 
+                                           Height="48"/>
 
                                 </StackPanel>
 
@@ -327,11 +340,11 @@
                                         <Label Content="₽" 
                                                FontFamily="/CarShop;component/Resource/Fonts/#Public Sans" 
                                                FontWeight="Bold" 
-                                               FontSize="48" 
-                                               Width="191"
+                                               FontSize="24" 
+                                               Width="214"
                                                VerticalAlignment="Center"
-                                               Margin="-600,16,0,25" 
-                                               Height="72"/>
+                                               Margin="-600,32,0,25" 
+                                               Height="56"/>
 
                                         <Button Grid.Row="6" 
                                                 BorderBrush="#fff"
@@ -340,7 +353,7 @@
                                                 FontSize="50"
                                                 FontFamily="Segoe UI Black"
                                                 Click="CreditMath"
-                                                Margin="-450,29,0,42" 
+                                                Margin="-450,17,0,31" 
                                                 Width="200">
 
                                             <Button.Resources>
@@ -363,9 +376,7 @@
                                                        HorizontalAlignment="Center"
                                                        HorizontalContentAlignment="Center" 
                                                        Width="147" 
-                                                       FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold">
-
-                                                </Label>
+                                                       FontFamily="/CarSell;component/Resource/Fonts/#Public Sans"/>
 
                                                 <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\BillsWhite.png" 
                                                        Height="42" 
@@ -417,7 +428,8 @@
                                         Foreground="#FFF"
                                         FontSize="50"
                                         FontFamily="Segoe UI Black" 
-                                        Margin="410,24,411,24"
+                                        Width="200"
+                                        Height="70"
                                         Click="TakeToCredit">
 
                                     <Button.Resources>
@@ -440,7 +452,7 @@
                                                HorizontalAlignment="Center"
                                                HorizontalContentAlignment="Center" 
                                                Width="147" 
-                                               FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold">
+                                               FontFamily="/CarSell;component/Resource/Fonts/#Public Sans">
 
                                         </Label>
 

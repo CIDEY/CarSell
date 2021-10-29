@@ -331,24 +331,26 @@
                           ScrollViewer.CanContentScroll="True" 
                           ScrollViewer.VerticalScrollBarVisibility="Auto"
                           ScrollViewer.HorizontalScrollBarVisibility="Auto" 
-                          Margin="459,0,381,75"
+                          Margin="87,40,87,75"
                           x:Name="table"
                           IsReadOnly="False"
                           SelectionMode="Single"
                           CanUserAddRows="False"
                           CanUserDeleteRows="False"
                           CanUserReorderColumns="False"
-                          AutoGenerateColumns="False">
+                          AutoGenerateColumns="False" 
+                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans" 
+                          FontSize="30">
 
                     <DataGrid.Columns>
 
                         <DataGridTextColumn Header="Купон"
                                             Binding="{Binding Path=Code}"
-                                            Width="500"/>
+                                            Width="800"/>
                         
                         <DataGridTextColumn Header="Скидка"
                                             Binding="{Binding Path=Discount}"
-                                            Width="500"/>
+                                            Width="1000"/>
 
                     </DataGrid.Columns>
 

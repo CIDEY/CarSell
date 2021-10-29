@@ -102,7 +102,8 @@
                      LostFocus="login_LostFocus"
                      MaxLength="16"
                      FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
-                     VerticalAlignment="Center">
+                     VerticalAlignment="Center"
+                     FontWeight="SemiBold">
 
                 <TextBox.Resources>
 
@@ -121,13 +122,15 @@
                      Grid.Column="3" 
                      Grid.Row="8"
                      Grid.ColumnSpan="6"
-                     BorderBrush="Black"
-                     BorderThickness="1.5" 
                      FontSize="50"
+                     VerticalContentAlignment="Center"
                      Text="Введите пароль"
                      GotFocus="Pass_GotFocus" 
                      LostFocus="Pass_LostFocus"
-                     FontFamily="/CarShop;component/Resource/Fonts/#Open Sans">
+                     FontFamily="/CarShop;component/Resource/Fonts/#Open Sans"
+                     BorderBrush="Black"
+                     BorderThickness="1.5"
+                     FontWeight="SemiBold">
 
                 <TextBox.Resources>
 

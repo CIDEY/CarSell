@@ -352,7 +352,7 @@
                                         VerticalAlignment="Center"
                                         Grid.Row="1">
 
-                                <Label Content="Размер скидки (в %):" 
+                                <Label Content="Размер скидки (в ₽):" 
                                        FontFamily="/CarShop;component/Resource/Fonts/#Public Sans" 
                                        FontWeight="Bold" 
                                        Margin="37,10,0,0" 
@@ -367,7 +367,11 @@
                                          x:Name="discountSum"
                                          FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold"
                                          VerticalAlignment="Center"
-                                         FontSize="25">
+                                         FontSize="25"
+                                         KeyDown="TextBoxKeyDown"
+                                         PreviewKeyDown="TextBoxKeyDown"
+                                         TextChanged="DiscountTextChanged"
+                                         PreviewTextInput="DiscountTextInput">
 
                                 </TextBox>
 

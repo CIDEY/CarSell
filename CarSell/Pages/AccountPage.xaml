@@ -60,10 +60,9 @@
                                FontFamily="/CarSell;component/Resource/Fonts/#Open Sans" 
                                FontWeight="SemiBold"
                                Foreground="White" 
-                               FontSize="66"/>
+                               FontSize="66" Margin="-178,0,0,0"/>
 
-                        <DataGrid Margin="0,105,0,0" 
-                                  Grid.Column="1"
+                        <DataGrid Margin="-178,105,0,0"
                                   x:Name="table"
                                   AutoGenerateColumns="False"
                                   ScrollViewer.CanContentScroll="True" 
@@ -73,17 +72,22 @@
                                   CanUserDeleteRows="False"
                                   CanUserReorderColumns="False"
                                   CanUserResizeRows="False"
-                                  IsReadOnly="False">
+                                  IsReadOnly="False"
+                                  FontFamily="/CarSell;component/Resource/Fonts/#Open Sans" 
+                                  FontSize="25">
                             <DataGrid.Columns>
 
                                 <DataGridTextColumn Header="Название автомобиля"
                                                     Binding="{Binding Path= Name}"/>
+                                
                                 <DataGridTextColumn Header="Модель"
                                                     Binding="{Binding Path= Model}"
-                                                    Width="100"/>
+                                                    Width="200"/>
+                                
                                 <DataGridTextColumn Header="Описание"
                                                     Binding="{Binding Path= InfoForCar}"
-                                                    Width="800">
+                                                    Width="700">
+                                    
                                     <DataGridTextColumn.ElementStyle>
 
                                         <Style TargetType="TextBlock">

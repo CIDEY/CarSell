@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -73,6 +74,41 @@ namespace CarSell.Pages
             car_ShopEntities.SaveChanges();
             MessageBox.Show("Купон добавлен!");
             NavigationService.Navigate(new Coupons());
+        }
+
+        private void TextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = e.Key == Key.Space;
+        }
+
+        private void DiscountTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var discountSum = e.Source as TextBox;
+            Regex regex;
+
+            if (Regex.Match(discountSum.Text, @"[0-9]").Success)
+            {
+                regex = new Regex(@"[^0-9]");
+            }
+            else
+            {
+                regex = new Regex(@"[^0-9]");
+            }
+
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void DiscountTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(discountSum.Text, @"^[0-9]+$"))
+            {
+                discountSum.Background = Brushes.White;
+            }
+            else if (Regex.IsMatch(discountSum.Text, @"^[0-9]+$"))
+            {
+                discountSum.ToolTip = "Это поле введено не корректно!";
+                discountSum.Background = Brushes.Red;
+            }
         }
     }
 }

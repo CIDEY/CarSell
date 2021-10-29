@@ -238,7 +238,8 @@
 
 
                     <StackPanel Grid.Row="3"
-                                Grid.Column="1" Grid.ColumnSpan="2">
+                                Grid.Column="1" 
+                                Grid.ColumnSpan="2">
 
                         <DataGrid x:Name="table"
                                   Height="450"
@@ -252,7 +253,9 @@
                                   CanUserResizeRows="False"
                                   IsReadOnly="False"
                                   AutoGenerateColumns="False"
-                                  SelectionMode="Single">
+                                  SelectionMode="Single"
+                                  FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold" 
+                                  FontSize="25">
 
 
                             <DataGrid.Columns>
@@ -261,10 +264,10 @@
                                                     Binding="{Binding Path= car.Name}"/>
                                 <DataGridTextColumn Header="Модель"
                                                     Binding="{Binding Path= car.Model}"
-                                                    Width="100"/>
+                                                    Width="180"/>
                                 <DataGridTextColumn Header="Описание"
                                                     Binding="{Binding Path= car.InfoForCar}"
-                                                    Width="1000">
+                                                    Width="950">
                                     <DataGridTextColumn.ElementStyle>
 
                                         <Style TargetType="TextBlock">

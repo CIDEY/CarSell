@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -81,6 +82,101 @@ namespace CarSell.Pages
             p.Color = color1.Text;
             car_ShopEntities.SaveChanges();
             MessageBox.Show("Изменение внесены");
+        }
+
+        private void TextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = e.Key == Key.Space;
+        }
+
+        private void NameCarTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var nameCarBox = e.Source as TextBox;
+            Regex regex;
+
+            if (Regex.Match(nameCarBox.Text, @"[A-Z]").Success)
+            {
+                regex = new Regex(@"[^a-z]");
+            }
+            else
+            {
+                regex = new Regex(@"[^A-Z]");
+            }
+
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void NameCarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(nameCar1.Text, @"^[A-Z.0-9][a-z.0-9]+$"))
+            {
+                nameCar1.Background = Brushes.White;
+            }
+            else if (Regex.IsMatch(nameCar1.Text, @"^[a-z.0-9][A-z.0-9]+$"))
+            {
+                nameCar1.ToolTip = "Это поле введено не корректно!";
+                nameCar1.Background = Brushes.Red;
+            }
+        }
+
+        private void ModelCarTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var nameCarBox = e.Source as TextBox;
+            Regex regex;
+
+            if (Regex.Match(nameCarBox.Text, @"[A-Z.0-9]").Success)
+            {
+                regex = new Regex(@"[^a-z.0-9]");
+            }
+            else
+            {
+                regex = new Regex(@"[^A-Z.0-9]");
+            }
+
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void ModelCarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(model1.Text, @"^[A-Z.0-9][a-z.0-9]+$"))
+            {
+                model1.Background = Brushes.White;
+            }
+            else if (Regex.IsMatch(model1.Text, @"^[a-z.0-9][A-z.0-9]+$"))
+            {
+                model1.ToolTip = "Это поле введено не корректно!";
+                model1.Background = Brushes.Red;
+            }
+        }
+
+        private void HpCarTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var nameCarBox = e.Source as TextBox;
+            Regex regex;
+
+            if (Regex.Match(nameCarBox.Text, @"[0-9]").Success)
+            {
+                regex = new Regex(@"[^0-9]");
+            }
+            else
+            {
+                regex = new Regex(@"[^0-9]");
+            }
+
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void HpCarTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(hp1.Text, @"^[0-9]+$"))
+            {
+                hp1.Background = Brushes.White;
+            }
+            else if (Regex.IsMatch(hp1.Text, @"^[0-9]+$"))
+            {
+                hp1.ToolTip = "Это поле введено не корректно!";
+                hp1.Background = Brushes.Red;
+            }
         }
     }
 }

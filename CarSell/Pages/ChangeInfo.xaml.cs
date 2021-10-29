@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -68,6 +69,41 @@ namespace CarSell.Pages
             p.Password = passBox.Text;
             car_ShopEntities1.SaveChanges();
             MessageBox.Show("Изменения внесены");
+        }
+
+        private void TextBoxKeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = e.Key == Key.Space;
+        }
+
+        private void LoginTextInput(object sender, TextCompositionEventArgs e)
+        {
+            var loginBox = e.Source as TextBox;
+            Regex regex;
+
+            if (Regex.Match(loginBox.Text, @"[A-Z.0-9]").Success)
+            {
+                regex = new Regex(@"[^a-z.0-9]");
+            }
+            else
+            {
+                regex = new Regex(@"[^A-Z.0-9]");
+            }
+
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void LoginTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Regex.IsMatch(loginBox.Text, @"^[A-Z.0-9][a-z.0-9]+$"))
+            {
+                loginBox.Background = Brushes.Green;
+            }
+            else if (Regex.IsMatch(loginBox.Text, @"^[a-z.0-9][A-z.0-9]+$"))
+            {
+                loginBox.ToolTip = "Это поле введено не корректно!";
+                loginBox.Background = Brushes.White;
+            }
         }
     }
 }

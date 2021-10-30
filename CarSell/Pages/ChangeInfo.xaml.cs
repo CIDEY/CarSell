@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void GoToBasket(object sender, RoutedEventArgs e)
@@ -60,7 +62,8 @@ namespace CarSell.Pages
             var p = (from Account in car_ShopEntities1.Accounts1 where Account.Id == Helper.a select Account).FirstOrDefault();
             p.Login = loginBox.Text;
             car_ShopEntities1.SaveChanges();
-            MessageBox.Show("Изменение внесены");
+            var notificationManager = new NotificationManager();
+            notificationManager.Show("Изменение логина", "Логин успешно обновлен!");
         }
 
         private void ChangePassword(object sender, RoutedEventArgs e)
@@ -68,7 +71,8 @@ namespace CarSell.Pages
             var p = (from Account in car_ShopEntities1.Accounts1 where Account.Id == Helper.a select Account).FirstOrDefault();
             p.Password = passBox.Text;
             car_ShopEntities1.SaveChanges();
-            MessageBox.Show("Изменения внесены");
+            var notificationManager = new NotificationManager();
+            notificationManager.Show("Изменение пароля", "Пароль успешно обновлен!");
         }
 
         private void TextBoxKeyDown(object sender, KeyEventArgs e)

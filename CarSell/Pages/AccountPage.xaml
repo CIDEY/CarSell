@@ -79,15 +79,15 @@
 
                                 <DataGridTextColumn Header="Название автомобиля"
                                                     Binding="{Binding Path= Name}"/>
-                                
+
                                 <DataGridTextColumn Header="Модель"
                                                     Binding="{Binding Path= Model}"
                                                     Width="200"/>
-                                
+
                                 <DataGridTextColumn Header="Описание"
                                                     Binding="{Binding Path= InfoForCar}"
                                                     Width="700">
-                                    
+
                                     <DataGridTextColumn.ElementStyle>
 
                                         <Style TargetType="TextBlock">
@@ -160,8 +160,8 @@
                                 Foreground="#FFF"
                                 FontSize="24"
                                 FontFamily="/CarShop;component/Resource/Fonts/#Open Sans SemiBold" 
-                                Margin="155,35,313,111"
-                                Click="ReplenishBtn">
+                                Margin="155,38,307,126"
+                                Click="ReplenishBtn" Height="Auto">
 
                             <Button.Resources>
 
@@ -239,12 +239,12 @@
                                     VerticalAlignment="Stretch"
                                     HorizontalAlignment="Center"
                                     Grid.Row="2" 
-                                    Margin="176,0,359,0" 
-                                    Width="136">
+                                    Margin="176,0,332,0" 
+                                    Width="163">
 
                             <Button Background="#027BF4" 
                                     BorderBrush="{x:Null}"
-                                    Click="EditAcc">
+                                    Click="EditAcc" Height="Auto">
 
                                 <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\Icon3.png" 
                                        Width="130"/>
@@ -278,7 +278,7 @@
                     Background="#027BF4"
                     Foreground="#027BF4" 
                     BorderBrush="{x:Null}"
-                    Click="GoToFavorite">
+                    Click="GoToFavorite" Height="Auto">
 
                 <StackPanel>
 
@@ -296,14 +296,14 @@
                     Background="#027BF4"
                     Foreground="#027BF4" 
                     BorderBrush="{x:Null}"
-                    Click="GoToCreditPage">
+                    Click="GoToCreditPage" Height="Auto">
 
                 <StackPanel>
 
                     <Image  Grid.Column="6"
                             Grid.Row="0" 
                             Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\percent.png" 
-                            Height="100"/>
+                            Height="92"/>
 
                 </StackPanel>
 
@@ -311,12 +311,12 @@
 
 
 
-            <Button Grid.Column="5"
+            <Button Grid.Column="4"
                     Grid.Row="0"
                     Background="#027BF4"
                     Foreground="#027BF4" 
                     BorderBrush="{x:Null}"
-                    Click="BackToMain">
+                    Click="BackToMain" Height="Auto">
 
                 <StackPanel>
 
@@ -333,7 +333,7 @@
                     Background="#027BF4"
                     Foreground="#027BF4" 
                     BorderBrush="{x:Null}"
-                    Click="GoToBasket">
+                    Click="GoToBasket" Height="Auto">
 
                 <StackPanel>
 
@@ -347,15 +347,14 @@
 
             <Button MaxHeight="67"
                     HorizontalAlignment="Left"
-                    Margin="20,0,0,0"
+                    Margin="20,34,0,24"
                     MaxWidth="151.55"
-                    Grid.RowSpan="2"
                     BorderBrush="#013C78"
                     Background="#013C78"
                     Foreground="#FFF"
                     FontSize="11"
                     FontFamily="Segoe UI Black"
-                    Click="BackToKatalog">
+                    Click="BackToKatalog" Height="Auto">
 
                 <Button.Resources>
 
@@ -378,7 +377,7 @@
                            FontFamily="/CarShop;component/Resource/Fonts/#Public Sans"
                            HorizontalAlignment="Center"
                            HorizontalContentAlignment="Center" 
-                           Width="148">
+                           Width="120">
 
                     </Label>
 
@@ -394,9 +393,7 @@
 
             <StackPanel Grid.Row="2"
                         Grid.ColumnSpan="6">
-                <DataGrid>
 
-                </DataGrid>
             </StackPanel>
 
 

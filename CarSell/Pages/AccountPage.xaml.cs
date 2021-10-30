@@ -36,6 +36,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void BackToKatalog(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,7 +84,8 @@ namespace CarSell.Pages
 
                 if (countLoginAndPassword.Count() > 0)
                 {
-                    MessageBox.Show("Вы успешно вошли в аккаунт!", "Вход");
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Вход", "Вы успешно вошли в аккаунт!");
                     var clientFromDB = (from Account in car_ShopEntities.Accounts1 where Account.Login == login && Account.Password == pass select Account.Login).FirstOrDefault();
                     KatalogPage.nameClientOnPage = clientFromDB;
                     NavigationService.Navigate(new KatalogPage());
@@ -91,7 +93,8 @@ namespace CarSell.Pages
 
                 else
                 {
-                    MessageBox.Show("Вы неправильно ввели логин или пароль, пожалуйста проверьте правильность введенных данных", "Вход");
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Вход", "Вы неправильно ввели логин или пароль, пожалуйста проверьте правильность введенных данных");
                 }
             }
         }

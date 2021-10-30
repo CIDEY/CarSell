@@ -37,15 +37,14 @@
 
                     <Button MaxHeight="67"
                             HorizontalAlignment="Left"
-                            Margin="20,0,0,0"
+                            Margin="20,34,0,24"
                             MaxWidth="151.55"
-                            Grid.RowSpan="2"
                             BorderBrush="#013C78"
                             Background="#013C78"
                             Foreground="#FFF"
                             FontSize="11"
                             FontFamily="Segoe UI Black"
-                            Click="BackToKatalog">
+                            Click="BackToKatalog" Height="Auto">
 
                         <Button.Resources>
 
@@ -63,12 +62,12 @@
 
                             <Label Content="В каталог"
                                    Foreground="#fff"
-                                   FontSize="24"
+                                   FontSize="20"
                                    FontFamily="/CarShop;component/Resource/Fonts/#Public Sans"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="148">
+                                   Width="123">
 
                             </Label>
 
@@ -81,7 +80,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="GoToFavorite">
+                            Click="GoToFavorite" Height="Auto">
 
                         <StackPanel>
 
@@ -99,7 +98,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="GoToCredit">
+                            Click="GoToCredit" Height="Auto">
 
                         <StackPanel>
 
@@ -117,7 +116,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="BackToMain">
+                            Click="BackToMain" Height="Auto">
 
                         <StackPanel>
 
@@ -167,7 +166,7 @@
                             FontFamily="Segoe UI Black"
                             HorizontalAlignment="Right" 
                             Click="SumPrice" 
-                            Margin="0,30">
+                            Margin="0,39,0,26" Height="Auto">
 
                         <Button.Resources>
 
@@ -188,7 +187,7 @@
                                    FontSize="25"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="166" 
+                                   Width="138" 
                                    FontFamily="/CarShop;component/Resource/Fonts/#Public Sans">
 
                             </Label>
@@ -205,7 +204,7 @@
                             Foreground="#FFF"
                             FontSize="11"
                             FontFamily="Segoe UI Black"
-                            HorizontalAlignment="Right" Click="DeleteCarForBasket" Margin="0,30">
+                            HorizontalAlignment="Right" Click="DeleteCarForBasket" Margin="0,39,0,26" Height="Auto">
 
                         <Button.Resources>
 
@@ -226,7 +225,7 @@
                                    FontSize="25"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="166" 
+                                   Width="137" 
                                    FontFamily="/CarShop;component/Resource/Fonts/#Public Sans">
 
                             </Label>
@@ -369,9 +368,10 @@
 
                                         </TextBox>
 
-                                        <Button Width="55"
+                                        <Button Width="83"
                                                 Click="UseToCoupon"
-                                                x:Name="checkCoupon">
+                                                x:Name="checkCoupon" 
+                                                Height="Auto" Background="#FF012A54">
 
                                             <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\Arrow 1.png" 
                                                    Height="20" 

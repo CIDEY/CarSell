@@ -36,15 +36,14 @@
 
                     <Button MaxHeight="67"
                             HorizontalAlignment="Left"
-                            Margin="20,0,0,0"
+                            Margin="20,34,0,24"
                             MaxWidth="151.55"
-                            Grid.RowSpan="2"
                             BorderBrush="#013C78"
                             Background="#013C78"
                             Foreground="#FFF"
                             FontSize="11"
                             FontFamily="Segoe UI Black"
-                            Click="BackToReplenish">
+                            Click="BackToReplenish" Height="Auto">
 
                         <Button.Resources>
 
@@ -67,7 +66,7 @@
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="148">
+                                   Width="115">
 
                             </Label>
 
@@ -79,7 +78,7 @@
                             Grid.Row="0"
                             Background="#027BF4"
                             Foreground="#027BF4" 
-                            BorderBrush="{x:Null}">
+                            BorderBrush="{x:Null}" Height="Auto">
 
                         <StackPanel>
 
@@ -97,7 +96,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="BusketPage">
+                            Click="BusketPage" Height="Auto">
 
                         <StackPanel>
 
@@ -115,7 +114,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="BackToMain">
+                            Click="BackToMain" Height="Auto">
 
                         <StackPanel>
 
@@ -149,8 +148,8 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center" 
                            Height="85" 
-                           Margin="444,74" 
-                           Width="1032"/>
+                           Margin="444,74,432,74" 
+                           Width="1044"/>
 
                     <Grid Grid.Row="1">
 

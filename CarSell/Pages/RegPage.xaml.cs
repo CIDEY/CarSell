@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,9 +93,6 @@ namespace CarSell.Pages
             e.Handled = regex.IsMatch(e.Text);
         }
 
-
-        //https://regexr.com/3bfsi
-        //https://regexr.com/3bfsi
         private void LoginTextChanged(object sender, TextChangedEventArgs e)
         {
             if (Regex.IsMatch(loginBox.Text, @"^[A-Z.0-9][a-z.0-9]+$"))
@@ -117,17 +115,21 @@ namespace CarSell.Pages
             if (login.Length < 5)
             {
                 loginBox.ToolTip = "Это поле введено не корректно!";
-                loginBox.Background = Brushes.DarkRed;
+                //loginBox.Background = Brushes.DarkRed;
+                loginBox.BorderBrush = Brushes.Red;
             }
             else if (pass.Length < 5)
             {
                 passBox.ToolTip = "Это поле введено не корректно!";
-                passBox.Background = Brushes.DarkRed;
+                //passBox.Background = Brushes.DarkRed;
+                passBox.BorderBrush = Brushes.Red;
             }
             else if (pass != passAgain)
             {
                 passBoxAgain.ToolTip = "Данные не совпадают!";
-                passBoxAgain.Background = Brushes.DarkRed;
+                //passBoxAgain.Background = Brushes.DarkRed;
+                passBoxAgain.BorderBrush = Brushes.Red;
+                passBoxAgain.BorderThickness = new Thickness(3,3,3,3);
             }
             else
             {
@@ -138,8 +140,6 @@ namespace CarSell.Pages
                 passBoxAgain.ToolTip = "";
                 passBoxAgain.Background = Brushes.Transparent;
 
-                //Account account1 = new Account(login, pass);
-
                 Account account1 = new Account
                 {
                     Login = loginBox.Text,
@@ -149,9 +149,8 @@ namespace CarSell.Pages
 
                 car_ShopEntities2.Accounts1.Add(account1);
                 car_ShopEntities2.SaveChanges();
-                MessageBox.Show("Все отлично!", "Регистрация");
-
-
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Регистрация", "Регистрация учетной записи пройдена успешно!");
 
                 NavigationService.Navigate(new AuthPage());
 

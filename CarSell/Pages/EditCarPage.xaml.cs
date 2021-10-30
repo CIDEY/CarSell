@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,7 @@ namespace CarSell.Pages
         private void GoToAuthPage(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void GoToProfile(object sender, RoutedEventArgs e)
@@ -81,7 +83,8 @@ namespace CarSell.Pages
             p.InfoForCar = infoForCar1.Text;
             p.Color = color1.Text;
             car_ShopEntities.SaveChanges();
-            MessageBox.Show("Изменение внесены");
+            var notificationManager = new NotificationManager();
+            notificationManager.Show("Изменение внесены!", "В данные автомобиля внесены изменения.");
         }
 
         private void TextBoxKeyDown(object sender, KeyEventArgs e)

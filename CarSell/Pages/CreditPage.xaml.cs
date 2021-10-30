@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void BusketPage(object sender, RoutedEventArgs e)
@@ -45,25 +47,30 @@ namespace CarSell.Pages
         private void TakeToCredit(object sender, RoutedEventArgs e)
         {
             var Account = (from Accountt in car_ShopEntities.Accounts1 where Accountt.Login == KatalogPage.nameClientOnPage select Accountt).FirstOrDefault();
-            int mounth = Convert.ToInt32(srok.Text);
-            double mPay = Convert.ToDouble(mounthPay.Text);
-            double money = Convert.ToInt32(summ.Text);
 
             if (!(bool)boolConfirm.IsChecked)
             {
-                MessageBox.Show("Вы не приняли соглашение.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Вы не приняли соглашение!");
             }
 
             else if ((bool)boolConfirm.IsChecked)
             {
+
+
                 if (srok.Text == "" || summ.Text == "" || srok.Text == "Введите срок займа" || summ.Text == "Введите сумму")
                 {
-                    MessageBox.Show("Поля пусты. Введите значения!");
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Ошибка", "Поля пусты. Введите значения!");
                 }
                 else
-                { 
+                {
+                    int mounth = Convert.ToInt32(srok.Text);
+                    double mPay = Convert.ToDouble(mounthPay.Text);
+                    double money = Convert.ToInt32(summ.Text);
                     Account.Balance += money;
-                    MessageBox.Show($"Счет пополнен на {summ.Text} рублей.");
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Пополнение счета", $"Счет пополнен на {summ.Text} рублей.");
                     car_ShopEntities.SaveChanges();
                     AccountPage.Balance += money;
                     NavigationService.Navigate(new AccountPage());
@@ -114,7 +121,8 @@ namespace CarSell.Pages
             #endregion
             if (srok.Text == "" || summ.Text == "" || srok.Text == "Введите срок займа" || summ.Text == "Введите сумму")
             {
-                MessageBox.Show("Поля пусты. Введите значения!");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Поля пусты. Введите значения!");
             }
             else
             {

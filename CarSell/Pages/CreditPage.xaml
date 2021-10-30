@@ -36,15 +36,14 @@
 
                     <Button MaxHeight="67"
                             HorizontalAlignment="Left"
-                            Margin="20,0,0,0"
+                            Margin="20,34,0,14"
                             MaxWidth="151.55"
-                            Grid.RowSpan="2"
                             BorderBrush="#013C78"
                             Background="#013C78"
                             Foreground="#FFF"
                             FontSize="11"
                             FontFamily="Segoe UI Black"
-                            Click="BackToReplenish">
+                            Click="BackToReplenish" Height="Auto">
 
                         <Button.Resources>
 
@@ -58,7 +57,7 @@
                         </Button.Resources>
 
                         <StackPanel Orientation="Horizontal" 
-                                    Width="149">
+                                    Width="136">
 
                             <Label Content="Назад"
                                    Foreground="#fff"
@@ -67,7 +66,7 @@
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="148">
+                                   Width="122">
 
                             </Label>
 
@@ -79,7 +78,7 @@
                             Grid.Row="0"
                             Background="#027BF4"
                             Foreground="#027BF4" 
-                            BorderBrush="{x:Null}">
+                            BorderBrush="{x:Null}" Height="Auto">
 
                         <StackPanel>
 
@@ -97,7 +96,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="BusketPage">
+                            Click="BusketPage" Height="Auto">
 
                         <StackPanel>
 
@@ -115,7 +114,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="BackToMain">
+                            Click="BackToMain" Height="Auto">
 
                         <StackPanel>
 
@@ -353,8 +352,8 @@
                                                 FontSize="50"
                                                 FontFamily="Segoe UI Black"
                                                 Click="CreditMath"
-                                                Margin="-450,17,0,31" 
-                                                Width="200">
+                                                Margin="-450,34,0,25" 
+                                                Width="212" Height="Auto">
 
                                             <Button.Resources>
 
@@ -406,7 +405,8 @@
                                                   HorizontalContentAlignment="Center"
                                                   Width="26"
                                                   Grid.Column="1"
-                                                  x:Name="boolConfirm"/>
+                                                  x:Name="boolConfirm" 
+                                                  Margin="0,0,0,66"/>
 
                                         <TextBlock Grid.Column="1"
                                                    Text="Я согласен на обработку персональных данных в соответствии с политикой 
@@ -451,7 +451,7 @@
                                                FontSize="24"
                                                HorizontalAlignment="Center"
                                                HorizontalContentAlignment="Center" 
-                                               Width="147" 
+                                               Width="140" 
                                                FontFamily="/CarSell;component/Resource/Fonts/#Public Sans">
 
                                         </Label>

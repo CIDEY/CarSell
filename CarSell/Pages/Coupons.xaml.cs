@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void GoToAccInfo(object sender, RoutedEventArgs e)
@@ -61,13 +63,15 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите купон для удаления");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите купон для удаления");
             }
 
             else
             {
                 car_ShopEntities.Coupons1.Remove(table.SelectedItem as Coupon);
-                MessageBox.Show("Купон удален из списка.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Успешно!", "Купон удален из списка.");
                 car_ShopEntities.SaveChanges();
                 NavigationService.Navigate(new Coupons());
             }
@@ -82,7 +86,8 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите купон");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите купон для внесения изменений");
             }
 
             else

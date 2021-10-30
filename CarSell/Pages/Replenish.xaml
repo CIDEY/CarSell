@@ -34,15 +34,14 @@
 
                 <Button MaxHeight="67"
                         HorizontalAlignment="Left"
-                        Margin="20,0,0,0"
+                        Margin="20,34,0,21"
                         MaxWidth="151.55"
-                        Grid.RowSpan="2"
                         BorderBrush="#013C78"
                         Background="#013C78"
                         Foreground="#FFF"
                         FontSize="11"
                         FontFamily="Segoe UI Black"
-                        Click="BackToProfile">
+                        Click="BackToProfile" Height="Auto">
 
                     <Button.Resources>
 
@@ -65,7 +64,7 @@
                                FontFamily="/CarShop;component/Resource/#Public Sans"
                                HorizontalAlignment="Center"
                                HorizontalContentAlignment="Center" 
-                               Width="148">
+                               Width="113">
 
                         </Label>
 
@@ -78,7 +77,7 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Click="GoToFavorite">
+                        Click="GoToFavorite" Height="Auto">
 
                     <StackPanel>
 
@@ -96,7 +95,15 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Click="GoToCreditPage">
+                        Click="GoToCreditPage" Height="Auto" RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="-0.524"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-0.741"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
 
                     <StackPanel>
 
@@ -114,7 +121,7 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Click="BusketPage">
+                        Click="BusketPage" Height="Auto">
 
                     <StackPanel>
 
@@ -132,7 +139,7 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Click="BackToMain">
+                        Click="BackToMain" Height="Auto">
 
                     <StackPanel>
 

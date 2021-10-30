@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void GoToAccInfo(object sender, RoutedEventArgs e)
@@ -72,7 +74,8 @@ namespace CarSell.Pages
 
             car_ShopEntities.Coupons1.Add(coupon);
             car_ShopEntities.SaveChanges();
-            MessageBox.Show("Купон добавлен!");
+            var notificationManager = new NotificationManager();
+            notificationManager.Show("Купон добавлен", "Купон добавлен в реестр.");
             NavigationService.Navigate(new Coupons());
         }
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Notification.Wpf;
 
 namespace CarSell.Pages
 {
@@ -49,6 +50,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void GoToAccInfo(object sender, RoutedEventArgs e)
@@ -100,7 +102,8 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите автомобиль");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите автомобиль!");
             }
 
             else
@@ -114,13 +117,15 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите автомобиль");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите автомобиль!");
             }
 
             else
             {
                 car_ShopEntities.Cars1.Remove(table.SelectedItem as Car);
-                MessageBox.Show("Автомобиль удален из списка.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Удаление прошло успешно", "Данный автомобиль удален с каталога");
                 car_ShopEntities.SaveChanges();
                 table.ItemsSource = car_ShopEntities.Cars1.ToList();
             }
@@ -130,7 +135,8 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите автомобиль");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите автомобиль!");
             }
             else
             {
@@ -143,7 +149,8 @@ namespace CarSell.Pages
 
                 car_ShopEntities.Favorites1.Add(favorite);
                 car_ShopEntities.SaveChanges();
-                MessageBox.Show("Машина добавлена в избранное.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Избраннное", "Данный автомобиль добавлен в избранное");
             }
         }
 
@@ -151,7 +158,8 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите автомобиль");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите автомобиль!");
             }
             else
             {
@@ -164,10 +172,10 @@ namespace CarSell.Pages
 
                 car_ShopEntities.Baskets1.Add(baskets);
                 car_ShopEntities.SaveChanges();
-                MessageBox.Show("Машина добавлена в корзину.");
+
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Корзина","Автомобиль добавлен в корзину.");
             }
-
-
         }
     }
 }

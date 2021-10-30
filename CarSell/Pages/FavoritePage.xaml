@@ -26,26 +26,33 @@
 
                     <Grid.ColumnDefinitions>
 
-                        <ColumnDefinition Width="40*"/>
-                        <ColumnDefinition Width="196*"/>
-                        <ColumnDefinition Width="30*"/>
-                        <ColumnDefinition Width="30*"/>
-                        <ColumnDefinition Width="30*"/>
-                        <ColumnDefinition Width="30*"/>
+                        <ColumnDefinition Width="215*"/>
+                        <ColumnDefinition Width="491*"/>
+                        <ColumnDefinition Width="728*"/>
+                        <ColumnDefinition Width="162*"/>
+                        <ColumnDefinition Width="162*"/>
+                        <ColumnDefinition Width="162*"/>
 
                     </Grid.ColumnDefinitions>
 
+                    <Label Content="Избранное"
+                           Grid.Column="1"
+                           Grid.Row="0"
+                           VerticalAlignment="Center"
+                           FontSize="45" 
+                           FontFamily="/CarSell;component/Resource/Fonts/#Open Sans" 
+                           Foreground="White"/>
+
                     <Button MaxHeight="67"
                             HorizontalAlignment="Left"
-                            Margin="20,0,0,0"
+                            Margin="20,34,0,16"
                             MaxWidth="151.55"
-                            Grid.RowSpan="2"
                             BorderBrush="#013C78"
                             Background="#013C78"
                             Foreground="#FFF"
                             FontSize="11"
                             FontFamily="Segoe UI Black"
-                            Click="BackToKatalog">
+                            Click="BackToKatalog" Width="152" Height="Auto">
 
                         <Button.Resources>
 
@@ -68,7 +75,7 @@
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="148">
+                                   Width="122">
 
                             </Label>
 
@@ -80,7 +87,7 @@
                             Grid.Row="0"
                             Background="#027BF4"
                             Foreground="#027BF4" 
-                            BorderBrush="{x:Null}">
+                            BorderBrush="{x:Null}" Height="Auto">
 
                         <StackPanel>
 
@@ -98,7 +105,7 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="GoToCredit">
+                            Click="GoToCredit" Height="Auto">
 
                         <StackPanel>
 
@@ -116,14 +123,14 @@
                             Background="#027BF4"
                             Foreground="#027BF4" 
                             BorderBrush="{x:Null}"
-                            Click="BackToMain">
+                            Click="BackToMain" Height="Auto">
 
                         <StackPanel>
 
                             <Image  Grid.Column="5"
                                     Grid.Row="0" 
                                     Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-out.png"
-                                    Height="100"/>
+                                    Height="94"/>
 
                         </StackPanel>
 
@@ -150,7 +157,7 @@
                             FontSize="11"
                             FontFamily="Segoe UI Black"
                             HorizontalAlignment="Right"
-                            Margin="0,9" Click="DeleteToFavorite">
+                            Margin="0,18,0,10" Click="DeleteToFavorite" Height="Auto">
 
                         <Button.Resources>
 
@@ -168,10 +175,10 @@
                             <Label Content="Удалить"
                                    FontWeight="Bold"
                                    Foreground="#fff"
-                                   FontSize="25"
+                                   FontSize="20"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="166" 
+                                   Width="132" 
                                    FontFamily="/CarShop;component/Resource/Fonts/#Public Sans">
 
                             </Label>
@@ -188,8 +195,8 @@
                             FontSize="11"
                             FontFamily="Segoe UI Black"
                             HorizontalAlignment="Right" 
-                            Margin="0,9" 
-                            Click="CarToBusket">
+                            Margin="0,18,0,10" 
+                            Click="CarToBusket" Height="Auto">
 
                         <Button.Resources>
 
@@ -207,11 +214,11 @@
                             <Label Content="В корзину"
                                    FontWeight="Bold"
                                    Foreground="#fff"
-                                   FontSize="25"
+                                   FontSize="20"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="166" 
-                                   FontFamily="/CarShop;component/Resource/Fonts/#Public Sans">
+                                   Width="138" 
+                                   FontFamily="/CarShop;component/Resource/Fonts/#Public Sans" Height="31">
 
                             </Label>
 
@@ -238,19 +245,22 @@
                                   Margin="36,0,36,30"
                                   IsReadOnly="False"
                                   SelectionMode="Single"
-                                  x:Name="table">
+                                  x:Name="table"
+                                  FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold" 
+                                  FontSize="25">
 
 
                             <DataGrid.Columns>
 
                                 <DataGridTextColumn Header="Название автомобиля"
-                                                    Binding="{Binding Path= car.Name}"/>
+                                                    Binding="{Binding Path= car.Name}"
+                                                    Width="300"/>
                                 <DataGridTextColumn Header="Модель"
                                                     Binding="{Binding Path= car.Model}"
-                                                    Width="100"/>
+                                                    Width="150"/>
                                 <DataGridTextColumn Header="Описание"
                                                     Binding="{Binding Path= car.InfoForCar}"
-                                                    Width="1000">
+                                                    Width="900">
                                     <DataGridTextColumn.ElementStyle>
 
                                         <Style TargetType="TextBlock">

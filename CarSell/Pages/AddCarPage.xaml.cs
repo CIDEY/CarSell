@@ -1,4 +1,5 @@
-﻿    using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void GoToAccInfo(object sender, RoutedEventArgs e)
@@ -76,7 +78,8 @@ namespace CarSell.Pages
 
             car_ShopEntities.Cars1.Add(car);
             car_ShopEntities.SaveChanges();
-            MessageBox.Show("Машина добавлена!");
+            var notificationManager = new NotificationManager();
+            notificationManager.Show("Добавление авто", "Автомобиль добавлен в каталог.");
             NavigationService.Navigate(new KatalogPage());
         }
 

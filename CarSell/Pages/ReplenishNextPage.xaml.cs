@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,6 +37,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void pay_GotFocus(object sender, RoutedEventArgs e)
@@ -68,9 +70,6 @@ namespace CarSell.Pages
             e.Handled = regex.IsMatch(e.Text);
         }
 
-
-        //https://regexr.com/3bfsi
-        //https://regexr.com/3bfsi
         private void PayTextChanged(object sender, TextChangedEventArgs e)
         {
             if (Regex.IsMatch(pay.Text, @"^[0-9]+$"))
@@ -94,29 +93,32 @@ namespace CarSell.Pages
             var Account = (from Accountt in car_ShopEntities.Accounts1 where Accountt.Login == KatalogPage.nameClientOnPage select Accountt).FirstOrDefault();
             double money = Convert.ToDouble(pay.Text);
 
-            if (money<100000 & money>1000)
+            if (money<100000 & money>0)
             {
                 double procent = 0.2;
-                money = money - (money * procent);
+                double comission = money * procent;
+                money = money - (comission);
                 Account.Balance += money;
                 car_ShopEntities.SaveChanges();
-                MessageBox.Show($"Счет пополнен на {money} рублей.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Пополнение", $"Счет пополнен на {money}₽. Комиссия составила {comission}₽.");
                 NavigationService.Navigate(new AccountPage());
             }
 
             else if (money > 100000)
             {
                 Account.Balance += Convert.ToDouble(pay.Text);
-                MessageBox.Show($"Счет пополнен на {pay.Text} рублей.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Пополнение", "Счет пополнен на {money}₽.");
                 car_ShopEntities.SaveChanges();
                 NavigationService.Navigate(new AccountPage());
             }
 
             else
             {
-                MessageBox.Show("Не удалось пополнить счет. Что-то пошло не так!");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Не удалось пополнить счет. Что-то пошло не так!");
             }
-
         }
     }
 }

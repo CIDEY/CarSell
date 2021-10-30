@@ -33,6 +33,7 @@ namespace CarSell.Pages
         private void BackToProfile(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AccountPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void ToReplenish(object sender, RoutedEventArgs e)

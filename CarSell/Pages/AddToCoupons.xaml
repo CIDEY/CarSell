@@ -44,18 +44,18 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Click="BackToMain">
+                        Click="BackToMain" Height="Auto">
 
                     <StackPanel>
 
                         <Image Grid.Column="6"
                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\log-out.png"
-                               Width="62"
+                               Width="88"
                                HorizontalAlignment="Center"
-                               Margin="47,20,38,20" Height="70"/>
+                               Height="94"/>
 
                     </StackPanel>
 
@@ -65,19 +65,18 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Click="GoToAccInfo">
+                        Click="GoToAccInfo" Height="Auto">
 
                     <StackPanel>
 
                         <Image Grid.Column="5"
                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\user1.png"
-                               Width="79"
+                               Width="100"
                                HorizontalAlignment="Center"
-                               Margin="46,20,39,20"
-                               Height="76"/>
+                               Height="90"/>
 
                     </StackPanel>
 
@@ -87,19 +86,18 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Width="auto"
+                        Width="135"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Click="GoToBusket">
+                        Click="GoToBusket" Height="Auto">
 
                     <StackPanel>
 
                         <Image Grid.Column="4"
                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\shopping-cart.png"
-                               Width="58"
+                               Width="101"
                                HorizontalAlignment="Center"
-                               Margin="41,20,44,20" 
-                               Height="67"/>
+                               Height="95"/>
 
                     </StackPanel>
 
@@ -112,17 +110,16 @@
                         Width="auto"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Click="GoToFavoritePage">
+                        Click="GoToFavoritePage" Height="Auto">
 
-                    <StackPanel HorizontalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center" 
+                                Width="133" 
+                                Height="96">
 
                         <Image Grid.Column="2"
                                Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\heart.png"
-                               Width="68"
-                               HorizontalAlignment="Center"
-                               Margin="39,20,45,20" 
                                Grid.ColumnSpan="2" 
-                               Height="63"/>
+                               Height="94"/>
 
                     </StackPanel>
 
@@ -135,15 +132,12 @@
                         Width="auto"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Click="GoToCredit">
+                        Click="GoToCredit" Height="Auto">
 
-                    <StackPanel HorizontalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Center" Height="90" Width="130">
 
                         <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\percent.png"
-                               Width="98"
-                               HorizontalAlignment="Center"
-                               Margin="50,20,35,20"
-                               Height="74"/>
+                               HorizontalAlignment="Center" Height="92"/>
 
                     </StackPanel>
 
@@ -156,18 +150,26 @@
                         Width="auto"
                         HorizontalAlignment="Center"
                         HorizontalContentAlignment="Center"
-                        Click="GoToCoupon">
+                        Click="GoToCoupon" 
+                        Height="Auto" 
+                        RenderTransformOrigin="0.5,0.5">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-0.211"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="-0.121"/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
 
                     <StackPanel HorizontalAlignment="Center"
-                                Width="180"
-                                Height="126"
+                                Width="135"
+                                Height="100"
                                 VerticalAlignment="Center">
 
-                        <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\pngwing.png"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center"
-                               Margin="50,20,67,20" 
-                               Height="105"/>
+                        <Image Source="C:\Users\kamal\source\repos\CarShop\CarShop\Resource\Images\pngwing.png" 
+                               Height="89"
+                               Margin="0,6,0,0"/>
 
                     </StackPanel>
 
@@ -191,8 +193,8 @@
                         Foreground="#FFF"
                         FontSize="50"
                         FontFamily="Segoe UI Black" 
-                        Margin="848,76,852,74"
-                        Click="AddToCoupon">
+                        Margin="848,103,852,86"
+                        Click="AddToCoupon" Height="Auto">
 
                     <Button.Resources>
 
@@ -274,10 +276,10 @@
                             <Label Content="В каталог"
                                    FontWeight="Bold"
                                    Foreground="#fff"
-                                   FontSize="25"
+                                   FontSize="15"
                                    HorizontalAlignment="Center"
                                    HorizontalContentAlignment="Center" 
-                                   Width="148" 
+                                   Width="120" 
                                    FontFamily="/CarShop;component/Resource/Fonts/#Public Sans">
 
                             </Label>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,7 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void GoToCredit(object sender, RoutedEventArgs e)
@@ -53,13 +55,15 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите автомобиль");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите автомобиль!");
             }
 
             else
             {
                 car_ShopEntities.Baskets1.Remove(table.SelectedItem as Basket);
-                MessageBox.Show("Автомобиль удален из списка.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Удаление", "Автомобиль удален из списка!");
                 car_ShopEntities.SaveChanges();
                 table.ItemsSource = car_ShopEntities.Baskets1.ToList();
             }
@@ -80,7 +84,8 @@ namespace CarSell.Pages
         {
             if (summPriceCar.Text == "")
             {
-                MessageBox.Show("Выведите сначала ИТОГ.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выведите сначала ИТОГ!");
             }
             else
             {
@@ -90,22 +95,34 @@ namespace CarSell.Pages
                 {
                     summ1 += Convert.ToInt32(item.car.Price);
                 }
+
+
                 string coupon = couponBox.Text.Trim();
 
                 var countCoupon = from Coupon in car_ShopEntities.Coupons1 where Coupon.Code == coupon select Coupon;
                 if (countCoupon.Count() > 0)
                 {
                     var couponUse = (from Coupon in car_ShopEntities.Coupons1 where couponBox.Text == Coupon.Code select Coupon.Discount).FirstOrDefault();
-                    int itogo = Convert.ToInt32(summPriceCar.Text);
-                    int discount = Convert.ToInt32(Convert.ToInt32(couponUse));
-                    itogo -= discount;
-                    summPriceCar.Text = Convert.ToString(itogo);
-                    checkCoupon.IsEnabled = false;
-                    MessageBox.Show($"Скидка применена в размере - {discount} рублей");
+                    if (summ1 > couponUse)
+                    {
+                        int itogo = Convert.ToInt32(summPriceCar.Text);
+                        int discount = Convert.ToInt32(Convert.ToInt32(couponUse));
+                        itogo -= discount;
+                        summPriceCar.Text = Convert.ToString(itogo);
+                        checkCoupon.IsEnabled = false;
+                        var notificationManager = new NotificationManager();
+                        notificationManager.Show("Скидка", $"Скидка применена в размере - {discount} рублей");
+                    }
+                    else
+                    {
+                        var notificationManager = new NotificationManager();
+                        notificationManager.Show("Ошибка", "У данного купона размер скидки выше общей цены вашей корзины.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Данный купон не существует.");
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Ошибка", "Данный купон не существует.");
                 }
             }
         }
@@ -114,22 +131,18 @@ namespace CarSell.Pages
         {
             if (summPriceCar.Text == "")
             {
-                MessageBox.Show("Выведите сначала ИТОГ.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выведите сначала ИТОГ.");
             }
             else
             {
-                //var countBalance1 = ((from balances in car_ShopEntities.Accounts1 where balances.Login == KatalogPage.nameClientOnPage select balances.Balance).Single());
-
-                //var countBalance1 = from balances in car_ShopEntities.Accounts1 where balances.Login == KatalogPage.nameClientOnPage select balances.Balance;
-                var countBalance1 = (from Account in car_ShopEntities.Accounts1 where Account.Login == KatalogPage.nameClientOnPage select Account.Balance).FirstOrDefault();
-
-                int countBalance = Convert.ToInt32(countBalance1);
+                var countBalance1 = (from Account in car_ShopEntities.Accounts1 where Account.Login == KatalogPage.nameClientOnPage select Account).FirstOrDefault();
 
                 int summPrice = Convert.ToInt32(summPriceCar.Text);
 
-                if (countBalance > summPrice)
+                if (countBalance1.Balance > summPrice)
                 {
-                    countBalance -= summPrice;
+                    countBalance1.Balance -= summPrice;
                     
                     var listBusket = (from Buskets in car_ShopEntities.Baskets1 where Buskets.account.Login == KatalogPage.nameClientOnPage select Buskets).ToList();
                     foreach (var item in listBusket)
@@ -142,14 +155,17 @@ namespace CarSell.Pages
                         car_ShopEntities.Phistories1.Add(phistory);
                     }
                     
+                    
                     car_ShopEntities.Baskets1.RemoveRange(table.ItemsSource as List<Basket>);
                     car_ShopEntities.SaveChanges();
-                    MessageBox.Show("Покупка совершена успешно! Ожидаем вас в автосалоне.");
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Покупка совершена успешно", "Ожидаем вас в автосалоне.");
                     table.ItemsSource = null;
                 }
                 else
                 {
-                    MessageBox.Show("Покупка невозможна. Недостаточно средств");
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Ошибка", "Покупка невозможна. Недостаточно средств.");
                 }
             }
             

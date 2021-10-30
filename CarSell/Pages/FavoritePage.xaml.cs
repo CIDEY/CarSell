@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Notification.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,19 +42,22 @@ namespace CarSell.Pages
         private void BackToMain(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AuthPage());
+            KatalogPage.nameClientOnPage = null;
         }
 
         private void DeleteToFavorite(object sender, RoutedEventArgs e)
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите автомобиль");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите автомобиль!");
             }
 
             else
             {
                 car_ShopEntities.Favorites1.Remove(table.SelectedItem as Favorite);
-                MessageBox.Show("Автомобиль удален из списка.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Удаление", "Автомобиль удален из списка!");
                 car_ShopEntities.SaveChanges();
                 table.ItemsSource = car_ShopEntities.Favorites1.ToList();
             }
@@ -63,20 +67,24 @@ namespace CarSell.Pages
         {
             if (table.SelectedItem == null)
             {
-                MessageBox.Show("Выберите автомобиль");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Выберите автомобиль!");
             }
             else
             {
                 var idAcc = (from Account in car_ShopEntities.Accounts1 where Account.Login == KatalogPage.nameClientOnPage select Account).FirstOrDefault();
+                var ad = table.SelectedItem as Favorite;
+                var thisCar = (from Cars in car_ShopEntities.Cars1 where Cars.Id == ad.IdCar select Cars).FirstOrDefault();
                 Basket baskets = new Basket
                 {
                     account = idAcc,
-                    car = table.SelectedItem as Car
+                    car = thisCar
                 };
 
                 car_ShopEntities.Baskets1.Add(baskets);
                 car_ShopEntities.SaveChanges();
-                MessageBox.Show("Машина добавлена в корзину.");
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Корзина", "Данный автомобиль добавлен в вашу корзину.");
             }
         }
     }

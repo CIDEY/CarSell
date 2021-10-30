@@ -294,7 +294,7 @@
                     Foreground="#FFF"
                     FontSize="11"
                     FontFamily="Segoe UI Black"
-                    Click="BackToMain">
+                    Click="BackToMain" Height="Auto" Margin="0,32,0,51">
 
                 <Button.Resources>
 
@@ -317,7 +317,7 @@
                            FontFamily="/CarShop;component/Resource/Fonts/#Public Sans"
                            HorizontalAlignment="Center"
                            HorizontalContentAlignment="Center" 
-                           Width="148"/>
+                           Width="114"/>
 
                 </StackPanel>
 

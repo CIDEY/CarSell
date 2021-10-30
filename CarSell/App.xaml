@@ -4,10 +4,16 @@
              xmlns:local="clr-namespace:CarSell"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
-        <FontFamily x:Key="OpenSansSemiBold">pack://application:,,,/Fonts/#OpenSansSemiBold</FontFamily>
-        <FontFamily x:Key="OpenSans-Bold">pack://application:,,,/Fonts/#OpenSans-Bold</FontFamily>
-        <FontFamily x:Key="PublicSans-Bold">pack://application:,,,/Fonts/#PublicSans-Bold</FontFamily>
-
+        <ResourceDictionary>
+            <FontFamily x:Key="OpenSansSemiBold">pack://application:,,,/Fonts/#OpenSansSemiBold</FontFamily>
+            <FontFamily x:Key="OpenSans-Bold">pack://application:,,,/Fonts/#OpenSans-Bold</FontFamily>
+            <FontFamily x:Key="PublicSans-Bold">pack://application:,,,/Fonts/#PublicSans-Bold</FontFamily>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

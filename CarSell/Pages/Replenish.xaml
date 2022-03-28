@@ -95,7 +95,7 @@
                         Background="#027BF4"
                         Foreground="#027BF4" 
                         BorderBrush="{x:Null}"
-                        Click="GoToCreditPage" Height="Auto" RenderTransformOrigin="0.5,0.5">
+                        Click="GoToCreditPage" Height="Auto" Margin="0,0,0,-2">
                     <Button.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -276,5 +276,3 @@
     </Border>
 
 </Page>
-
-

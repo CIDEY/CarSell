@@ -69,10 +69,10 @@
                                   ScrollViewer.VerticalScrollBarVisibility="Auto"
                                   ScrollViewer.HorizontalScrollBarVisibility="Auto"
                                   CanUserAddRows="False"
+                                  IsReadOnly="True"
                                   CanUserDeleteRows="False"
                                   CanUserReorderColumns="False"
                                   CanUserResizeRows="False"
-                                  IsReadOnly="False"
                                   FontFamily="/CarSell;component/Resource/Fonts/#Open Sans" 
                                   FontSize="25">
                             <DataGrid.Columns>

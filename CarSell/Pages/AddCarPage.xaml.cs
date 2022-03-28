@@ -65,22 +65,31 @@ namespace CarSell.Pages
 
         private void AddToCar(object sender, RoutedEventArgs e)
         {
-            Car car = new Car()
+            if (nameCarBox.Text == "" || modelCarBox.Text == "" || nameCarBox.Text == "" || HpBox.Text == "" || equipmentCarBox.Text == "" || priceCarBox.Text == "" || infoCarBox.Text == "" || colorCarBox.Text == "")
             {
-                Name = nameCarBox.Text,
-                Model = modelCarBox.Text,
-                Hp = Convert.ToInt32(HpBox.Text),
-                Equipment = equipmentCarBox.Text,
-                Price = Convert.ToInt32(priceCarBox.Text),
-                InfoForCar = infoCarBox.Text,
-                Color = colorCarBox.Text
-            };
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Ошибка", "Поля пусты. Введите значения!");
+            }
+            else
+            {
+                Car car = new Car()
+                {
+                    Name = nameCarBox.Text,
+                    Model = modelCarBox.Text,
+                    Hp = Convert.ToInt32(HpBox.Text),
+                    Equipment = equipmentCarBox.Text,
+                    Price = Convert.ToInt32(priceCarBox.Text),
+                    InfoForCar = infoCarBox.Text,
+                    Color = colorCarBox.Text
+                };
 
-            car_ShopEntities.Cars1.Add(car);
-            car_ShopEntities.SaveChanges();
-            var notificationManager = new NotificationManager();
-            notificationManager.Show("Добавление авто", "Автомобиль добавлен в каталог.");
-            NavigationService.Navigate(new KatalogPage());
+
+                car_ShopEntities.Cars1.Add(car);
+                car_ShopEntities.SaveChanges();
+                var notificationManager = new NotificationManager();
+                notificationManager.Show("Добавление авто", "Автомобиль добавлен в каталог.");
+                NavigationService.Navigate(new KatalogPage());
+            }
         }
 
         private void TextBoxKeyDown(object sender, KeyEventArgs e)

@@ -243,7 +243,7 @@
                                   CanUserReorderColumns="False"
                                   CanUserResizeRows="False"
                                   Margin="36,0,36,30"
-                                  IsReadOnly="False"
+                                  IsReadOnly="True"
                                   SelectionMode="Single"
                                   x:Name="table"
                                   FontFamily="/CarSell;component/Resource/Fonts/#Open Sans SemiBold" 

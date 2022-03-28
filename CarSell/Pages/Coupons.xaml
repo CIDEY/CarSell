@@ -326,7 +326,7 @@
                           ScrollViewer.HorizontalScrollBarVisibility="Auto" 
                           Margin="87,40,87,75"
                           x:Name="table"
-                          IsReadOnly="False"
+                          IsReadOnly="True"
                           SelectionMode="Single"
                           CanUserAddRows="False"
                           CanUserDeleteRows="False"
@@ -356,4 +356,3 @@
     </Border>
 
 </Page>
-

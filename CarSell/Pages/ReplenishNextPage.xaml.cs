@@ -91,33 +91,41 @@ namespace CarSell.Pages
         private void AddToPayBalance(object sender, RoutedEventArgs e)
         {
             var Account = (from Accountt in car_ShopEntities.Accounts1 where Accountt.Login == KatalogPage.nameClientOnPage select Accountt).FirstOrDefault();
-            double money = Convert.ToDouble(pay.Text);
-
-            if (money<100000 & money>0)
-            {
-                double procent = 0.2;
-                double comission = money * procent;
-                money = money - (comission);
-                Account.Balance += money;
-                car_ShopEntities.SaveChanges();
-                var notificationManager = new NotificationManager();
-                notificationManager.Show("Пополнение", $"Счет пополнен на {money}₽. Комиссия составила {comission}₽.");
-                NavigationService.Navigate(new AccountPage());
-            }
-
-            else if (money > 100000)
-            {
-                Account.Balance += Convert.ToDouble(pay.Text);
-                var notificationManager = new NotificationManager();
-                notificationManager.Show("Пополнение", "Счет пополнен на {money}₽.");
-                car_ShopEntities.SaveChanges();
-                NavigationService.Navigate(new AccountPage());
-            }
-
-            else
+            if (pay == null || pay.Text == "Введите сумму")
             {
                 var notificationManager = new NotificationManager();
                 notificationManager.Show("Ошибка", "Не удалось пополнить счет. Что-то пошло не так!");
+            }
+            else
+            {
+                double money = Convert.ToDouble(pay.Text);
+
+                if (money < 100000 & money > 0)
+                {
+                    double procent = 0.2;
+                    double comission = money * procent;
+                    money = money - (comission);
+                    Account.Balance += money;
+                    car_ShopEntities.SaveChanges();
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Пополнение", $"Счет пополнен на {money}₽. Комиссия составила {comission}₽.");
+                    NavigationService.Navigate(new AccountPage());
+                }
+
+                else if (money > 100000)
+                {
+                    Account.Balance += Convert.ToDouble(pay.Text);
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Пополнение", $"Счет пополнен на {money}₽.");
+                    car_ShopEntities.SaveChanges();
+                    NavigationService.Navigate(new AccountPage());
+                }
+
+                else
+                {
+                    var notificationManager = new NotificationManager();
+                    notificationManager.Show("Ошибка", "Не удалось пополнить счет. Что-то пошло не так!");
+                }
             }
         }
     }

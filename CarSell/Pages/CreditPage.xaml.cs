@@ -57,7 +57,6 @@ namespace CarSell.Pages
             else if ((bool)boolConfirm.IsChecked)
             {
 
-
                 if (srok.Text == "" || summ.Text == "" || srok.Text == "Введите срок займа" || summ.Text == "Введите сумму")
                 {
                     var notificationManager = new NotificationManager();
@@ -76,49 +75,11 @@ namespace CarSell.Pages
                     NavigationService.Navigate(new AccountPage());
                 }
 
-                #region noActual
-                //if (mounth < 12)
-                //{
-                //    Account.Balance += money;
-                //    MessageBox.Show($"Счет пополнен на {summ.Text} рублей.");
-                //    car_ShopEntities.SaveChanges();
-                //    AccountPage.Balance += money;
-                //    NavigationService.Navigate(new AccountPage());
-                //}
-
-                //else if (mounth > 12)
-                //{
-                //    double payment = (money / mounth) + money * 0.5833333333333333;
-                //    money = Math.Round(payment, 2);
-                //    Account.Balance += money;
-                //    MessageBox.Show($"Счет пополнен на {summ.Text} рублей.");
-                //    car_ShopEntities.SaveChanges();
-                //    AccountPage.Balance += money;
-                //    NavigationService.Navigate(new AccountPage());
-                //}
-                #endregion
             }
         }
 
         private void CreditMath(object sender, RoutedEventArgs e)
         {
-            #region noActual
-            //double mounth, mPay, money;
-
-            //mounth = double.Parse(srok.Text);
-            //mPay = double.Parse(mounthPay.Text);
-            //money = double.Parse(summ.Text);
-
-
-
-            //mPay = money / mounth;
-            ////mPay = mounthPay.ToString();
-            //mounthPay.Text = mPay.ToString();
-
-            //string mounthPay1 = Convert.ToString(mounthPay.Text);
-
-            //mounthPay1 = mounthPay.Text;
-            #endregion
             if (srok.Text == "" || summ.Text == "" || srok.Text == "Введите срок займа" || summ.Text == "Введите сумму")
             {
                 var notificationManager = new NotificationManager();
@@ -135,8 +96,8 @@ namespace CarSell.Pages
                 }
                 else if (mounth > 12)
                 {
-                    double payment = (money / mounth) + money * 0.5833333333333333;
-                    double itog = Math.Round(payment, 2);
+                    double itog_credit = money * (0.07+(0.07/(1+0.07))*mounth-1);
+                    double itog = Math.Round(itog_credit, 2);
                     mounthPay.Text = Convert.ToString(itog);
                 }
             }
